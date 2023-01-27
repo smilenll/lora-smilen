@@ -5,10 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MainCarousel } from './components/MainCarousel';
 import { RegistrationForm } from './components/RegisterForm/RegistrationForm';
 import { GuestAuth } from './components/GuestAuth/GuestAuth';
-import { EndRegistration } from './components/EndRegistration.tsx/EndRegistration';
+import { EndRegistration } from './components/EndRegistration/EndRegistration';
 import { Tabs } from './common/Tabs.enum';
 import { ICurrentGuest } from './common/IGuest';
 import { api } from './proxies/apiProxy';
+import { Table } from 'react-bootstrap';
+import { GuestsList } from './components/GuestsList/GuestsList';
 
 function App() {
   const [guests, setGuests] = useState([]);
@@ -30,7 +32,7 @@ function App() {
       case Tabs.REG:
         return <RegistrationForm setCurrentTab={setCurrentTab} currentGuest={currentGuest as ICurrentGuest} setCurrentGuest={setCurrentGuest} />
       case Tabs.END:
-        return <EndRegistration currentGuest={currentGuest as ICurrentGuest} setCurrentTab={setCurrentTab}/>
+        return <EndRegistration currentGuest={currentGuest as ICurrentGuest} setCurrentTab={setCurrentTab} />
       default:
         break;
     }
@@ -42,7 +44,7 @@ function App() {
         Нашата сватба
       </h1>
       <MainCarousel />
-      <div>
+      <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
         {renderTab()}
       </div>
       <div>
@@ -55,16 +57,14 @@ function App() {
         Нашата история
       </div>
       <hr></hr>
+      <GuestsList guests={guests} />
+      <hr></hr>
       <h1>
         Admin Panel
-
       </h1>
-      <AddGuest handleGuests={handleGuests} />
-      <ul>
-        {guests.map((guest: ICurrentGuest) => (
-          <li key={guest.name + Math.random()}>{guest.name} {guest.lastName} {guest.menu} {guest.nights} {guest.registered.toString()}</li>
-        ))}
-      </ul>
+      <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+        <AddGuest handleGuests={handleGuests} />
+      </div>
     </ div>
   );
 }

@@ -14,7 +14,7 @@ export const EndRegistration = (props: Props) => {
     }
 
     return (
-        <div className='offset-3 col-6 mt-5'>
+        <div>
             <h1>Вие се регистрирахте успешно.</h1>
             <ul>
                 {userProps.map(p => {

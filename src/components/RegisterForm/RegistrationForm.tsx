@@ -16,7 +16,7 @@ type Props = {
 
 export const RegistrationForm = (props: Props) => {
     const [menu, setMenu] = useState(Meal.PORK);
-    const [email, setEmail] = useState(Meal.PORK);
+    const [email, setEmail] = useState();
     const [nights, setNights] = useState(0);
     const [btnDisabled, setBtnDisabled] = useState(false)
     const [validated, setValidated] = useState(false);
@@ -34,7 +34,7 @@ export const RegistrationForm = (props: Props) => {
 
 
     return (
-        <div className='offset-3 col-6 mt-5'>
+        <>
             <h1>Registration form</h1>
             <h2>{`Hello ${props.currentGuest.name} ${props.currentGuest.lastName}`}</h2>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
@@ -65,7 +65,6 @@ export const RegistrationForm = (props: Props) => {
                 <Button type="submit" disabled={btnDisabled}> Register</Button>
             </InputGroup>
             </Form>
-            
-        </div>
+        </>
     );
 };

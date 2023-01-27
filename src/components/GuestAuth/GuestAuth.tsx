@@ -41,7 +41,7 @@ export const GuestAuth = (props: Props) => {
     };
     
     return (
-        <div className='offset-3 col-6 mt-5'>
+        <>
             <h1>Вход</h1>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
@@ -72,7 +72,6 @@ export const GuestAuth = (props: Props) => {
                     <Button type="submit" disabled={btnDisabled}> Към регистрация</Button>
                 </Form.Group>
             </Form>
-
-        </div>
+        </>
     );
 };

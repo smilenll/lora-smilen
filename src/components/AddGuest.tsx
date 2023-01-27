@@ -20,7 +20,7 @@ export const AddGuest = (props: any) => {
   };
 
   return (
-    <div className='offset-3 col-6 mt-5'>
+    <>
       <InputGroup className={MARGIN_TOP}>
         <Form.Control
           placeholder="Име"
@@ -40,6 +40,6 @@ export const AddGuest = (props: any) => {
         {" "}
         <Button onClick={handleClick}> Register</Button>
       </InputGroup>
-    </div>
+    </>
   );
 };

@@ -10,4 +10,5 @@ export interface IGuest {
 export interface ICurrentGuest extends IGuest {
   nights?: number;
   menu?: Meal;
+  email?: string;
 }
