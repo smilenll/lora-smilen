@@ -3,6 +3,11 @@
   src: local('MarckScript'), url(./../public/fonts/MarckScript-Regular.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'PoiretOne';
+  src: local('PoiretOne'), url(./../public/fonts/PoiretOne-Regular.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,10 +16,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: antiquewhite;
-}
-
-h1 {
-  font-family: 'MarckScript';
 }
 
 code {
