@@ -1,25 +1,21 @@
 import { useState } from "react";
-import { collection, getDocs, addDoc } from "@firebase/firestore";
-import { guestsCollectionRef } from "../services/dbServices";
 import { Button, Form, InputGroup } from "react-bootstrap";
+import { api } from '../proxies/apiProxy';
 import "./add-guest.css";
 
 
-const MARGIN_TOP="mt-4";
+const MARGIN_TOP = "mt-4";
 
 export const AddGuest = (props: any) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [menu, setMenu] = useState("");
-  const [nights, setNights] = useState(0);
 
-  const addGuest = async () => {
-    await addDoc(guestsCollectionRef, {
+  const handleClick = async () => {
+    await api.addGuest({
       name,
       lastName,
-      menu,
-      nights,
-    });
+      registered: false
+    })
     props.handleGuests();
   };
 
@@ -29,6 +25,7 @@ export const AddGuest = (props: any) => {
         <Form.Control
           placeholder="Име"
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </InputGroup>
       <InputGroup className={MARGIN_TOP}>
@@ -36,24 +33,12 @@ export const AddGuest = (props: any) => {
         <Form.Control
           placeholder="Фамиля"
           onChange={(e) => setLastName(e.target.value)}
+          required
         />
       </InputGroup>
       <InputGroup className={MARGIN_TOP}>
         {" "}
-        <Form.Control
-          placeholder="Меню"
-          onChange={(e) => setMenu(e.target.value)}
-        />
-      </InputGroup>
-      <InputGroup className={MARGIN_TOP}>
-        <Form.Control
-          placeholder="Вечери престой"
-          onChange={(e) => setNights(Number(e.target.value))}
-        />
-      </InputGroup>
-      <InputGroup className={MARGIN_TOP}>
-        {" "}
-        <Button onClick={addGuest}> Register</Button>
+        <Button onClick={handleClick}> Register</Button>
       </InputGroup>
     </div>
   );
