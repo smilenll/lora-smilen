@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup, Row } from "react-bootstrap";
 import { Tabs } from '../../common/Tabs.enum';
 import { ICurrentGuest } from '../../common/IGuest';
 import { Meal } from '../../common/Meal.enum';
 import { api } from '../../proxies/apiProxy';
-import { handleSubmit } from '../../common/heleprs';
+import { getMenuString, handleSubmit } from '../../common/heleprs';
 
 const MARGIN_TOP = "mt-4";
 
@@ -32,38 +32,48 @@ export const RegistrationForm = (props: Props) => {
         }
     };
 
+    const availableMeals = [Meal.PORK, Meal.FISH, Meal.VEGGIE]
+    const nightsOptions = [1, 2, 4]
 
     return (
         <>
-            <h1>Registration form</h1>
-            <h2>{`Hello ${props.currentGuest.name} ${props.currentGuest.lastName}`}</h2>
+            <h3>{`Здравей ${props.currentGuest.name}`}</h3>
+            <p>за да завършиш регистрацията си за КУПОНА моля попълни полетата</p>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <InputGroup hasValidation={true}>
-                <Form.Control
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value as any)}
-                    required
-                />
-            </InputGroup>
-            <InputGroup className={MARGIN_TOP}>
-                {" "}
-                <Form.Control
-                    placeholder="Меню"
-                    onChange={(e) => setMenu(e.target.value as any)}
-                    required
-                />
-            </InputGroup>
-            <InputGroup className={MARGIN_TOP}>
-                <Form.Control
-                    placeholder="Вечери престой"
-                    onChange={(e) => setNights(Number(e.target.value))}
-                    required
-                />
-            </InputGroup>
-            <InputGroup className={MARGIN_TOP}>
-                {" "}
-                <Button type="submit" disabled={btnDisabled}> Register</Button>
-            </InputGroup>
+                    <Form.Control
+                        placeholder="Email"
+                        onChange={(e) => setEmail(e.target.value as any)}
+                        required
+                    />
+                </InputGroup>
+                <Form.Group className={MARGIN_TOP}>
+                    <Form.Label>Предпочитано Меню</Form.Label>
+                    <Form.Select
+                        onChange={(e) => setMenu(e.target.value as any)}
+                        required
+                    >
+                        {availableMeals.map((meal: any) => (
+                            <option value={meal}>{getMenuString(meal)}</option>
+                        ))}
+
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className={MARGIN_TOP}>
+                    <Form.Label>Брой нощувки</Form.Label>
+                    <Form.Select
+                        onChange={(e) => setNights(Number(e.target.value))}
+                        required
+                    >
+                        {nightsOptions.map((nightOption: any) => (
+                            <option value={nightOption}>{nightOption}</option>
+                        ))}
+                    </Form.Select>
+                </Form.Group>
+                <InputGroup className={MARGIN_TOP}>
+                    {" "}
+                    <Button type="submit" disabled={btnDisabled}> Register</Button>
+                </InputGroup>
             </Form>
         </>
     );

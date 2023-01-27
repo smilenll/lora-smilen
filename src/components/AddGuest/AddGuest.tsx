@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
-import { api } from '../proxies/apiProxy';
+import { api } from '../../proxies/apiProxy';
 import "./add-guest.css";
 
 

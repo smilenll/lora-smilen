@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { AddGuest } from './components/AddGuest';
+import { AddGuest } from './components/AddGuest/AddGuest';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MainCarousel } from './components/MainCarousel';
+import { MainCarousel } from './components/MainCarousel/MainCarousel';
 import { RegistrationForm } from './components/RegisterForm/RegistrationForm';
 import { GuestAuth } from './components/GuestAuth/GuestAuth';
 import { EndRegistration } from './components/EndRegistration/EndRegistration';
 import { Tabs } from './common/Tabs.enum';
 import { ICurrentGuest } from './common/IGuest';
 import { api } from './proxies/apiProxy';
-import { Table } from 'react-bootstrap';
 import { GuestsList } from './components/GuestsList/GuestsList';
 
 function App() {

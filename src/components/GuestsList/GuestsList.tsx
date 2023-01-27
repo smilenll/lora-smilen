@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
+import { getMenuString } from '../../common/heleprs'
 import { ICurrentGuest } from '../../common/IGuest'
+import { Meal } from '../../common/Meal.enum'
 
 type Props = {
   guests: Array<ICurrentGuest>
@@ -8,10 +10,9 @@ type Props = {
 
 export const GuestsList = (props: Props) => {
   const [showGuests, setShowGuests] = useState(false);
-
+  
   return (
     <>
-      
       <Button onClick={() => setShowGuests((prevState) => (!prevState))}>{showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
       {showGuests && (
         <Table striped bordered hover>
@@ -31,7 +32,7 @@ export const GuestsList = (props: Props) => {
                 <td>{++index}</td>
                 <td>{guest.name}</td>
                 <td>{guest.lastName}</td>
-                <td>{guest.menu}</td>
+                <td>{getMenuString(guest.menu)}</td>
                 <td>{guest.nights}</td>
                 <td>{guest.email}</td>
               </tr>
