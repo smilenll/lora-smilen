@@ -80,7 +80,7 @@ export default function Countdown() {
           </span>
         )}
       </CountdownCircleTimer>
-      <CountdownCircleTimer
+      {/* <CountdownCircleTimer
         {...timerProps}
         colors="#218380"
         duration={minuteSeconds}
@@ -94,7 +94,7 @@ export default function Countdown() {
             {renderTime("seconds", getTimeSeconds(elapsedTime))}
           </span>
         )}
-      </CountdownCircleTimer>
+      </CountdownCircleTimer> */}
     </div>
   );
 }
