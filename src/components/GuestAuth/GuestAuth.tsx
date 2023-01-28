@@ -25,7 +25,7 @@ export const GuestAuth = (props: Props) => {
         const dbUser = await api.authUser(name, lastName, authKey) as IGuest;
         setBtnDisabled(false);
 
-        if(!dbUser) {
+        if (!dbUser) {
             setValidated(false)
             alert("Грешни данни")
             return
@@ -39,10 +39,9 @@ export const GuestAuth = (props: Props) => {
             props.setCurrentTab(Tabs.REG)
         }
     };
-    
+
     return (
         <>
-            <h1>Вход</h1>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
                     <Form.Control
@@ -69,7 +68,9 @@ export const GuestAuth = (props: Props) => {
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
                     {" "}
-                    <Button type="submit" disabled={btnDisabled}> Към регистрация</Button>
+                    <div className="d-grid">
+                        <Button type="submit" disabled={btnDisabled} variant="outline-warning"> Към регистрация</Button>
+                    </div>
                 </Form.Group>
             </Form>
         </>

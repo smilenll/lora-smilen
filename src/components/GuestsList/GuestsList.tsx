@@ -10,10 +10,14 @@ type Props = {
 
 export const GuestsList = (props: Props) => {
   const [showGuests, setShowGuests] = useState(false);
-  
+
   return (
     <>
-      <Button onClick={() => setShowGuests((prevState) => (!prevState))}>{showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
+    <br></br>
+      <div className="d-grid">
+        <Button onClick={() => setShowGuests((prevState) => (!prevState))} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
+      </div>
+      <br></br>
       {showGuests && (
         <Table striped bordered hover>
           <thead>

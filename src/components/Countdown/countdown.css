@@ -1,0 +1,12 @@
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 30px;
+  }
+  
+  .time {
+    font-size: 20px;
+  }
+  

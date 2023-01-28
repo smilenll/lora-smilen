@@ -70,10 +70,11 @@ export const RegistrationForm = (props: Props) => {
                         ))}
                     </Form.Select>
                 </Form.Group>
-                <InputGroup className={MARGIN_TOP}>
-                    {" "}
-                    <Button type="submit" disabled={btnDisabled}> Register</Button>
-                </InputGroup>
+                <Form.Group className={MARGIN_TOP}>
+                    <div className="d-grid">
+                        <Button type="submit" disabled={btnDisabled} variant="outline-warning">Регистрация</Button>
+                    </div>
+                </Form.Group>
             </Form>
         </>
     );

@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { ICurrentGuest } from '../../common/IGuest';
 import { Tabs } from '../../common/Tabs.enum';
 
@@ -16,18 +16,27 @@ export const EndRegistration = (props: Props) => {
     return (
         <div>
             <h1>Вие се регистрирахте успешно.</h1>
-            <ul>
-                {userProps.map(p => {
-                    const [key, value] = p;
-                    if (key !== 'id') {
-                        return (
-                            <li key={key + value}>{key} : {value}</li>
-                        )
-                    }
-                })}
+            <Table striped bordered hover>
+                <tbody>
+                    {userProps.map(p => {
+                        const [key, value] = p;
+                        if (key !== 'id') {
+                            return (
+                                <tr>
+                                    <td>{key}</td>
+                                    <td>{value}</td>
+                                </tr>
 
-            </ul>
-            <Button onClick={handleClick}>Нова регистрация</Button>
+                            )
+                        }
+                    })}
+                </tbody>
+
+
+            </Table>
+            <div className="d-grid">
+                <Button onClick={handleClick} variant="outline-warning">Нова регистрация</Button>
+            </div>
         </div>
     );
 };

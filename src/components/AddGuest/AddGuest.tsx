@@ -21,25 +21,26 @@ export const AddGuest = (props: any) => {
 
   return (
     <>
-      <InputGroup className={MARGIN_TOP}>
+      <Form.Group className={MARGIN_TOP}>
         <Form.Control
           placeholder="Име"
           onChange={(e) => setName(e.target.value)}
           required
         />
-      </InputGroup>
-      <InputGroup className={MARGIN_TOP}>
+      </Form.Group>
+      <Form.Group className={MARGIN_TOP}>
         {" "}
         <Form.Control
           placeholder="Фамиля"
           onChange={(e) => setLastName(e.target.value)}
           required
         />
-      </InputGroup>
-      <InputGroup className={MARGIN_TOP}>
-        {" "}
-        <Button onClick={handleClick}> Register</Button>
-      </InputGroup>
+      </Form.Group>
+      <Form.Group className={MARGIN_TOP}>
+        <div className="d-grid">
+                <Button onClick={handleClick} variant="outline-warning">Добави гост</Button>
+            </div>
+      </Form.Group>
     </>
   );
 };
