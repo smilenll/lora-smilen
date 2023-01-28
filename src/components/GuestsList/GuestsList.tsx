@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
-import { getMenuString } from '../../common/heleprs'
+import { getMenuString, registeredStyle } from '../../common/heleprs'
 import { ICurrentGuest } from '../../common/IGuest'
 import { Meal } from '../../common/Meal.enum'
 
@@ -32,7 +32,7 @@ export const GuestsList = (props: Props) => {
           </thead>
           <tbody>
             {props.guests.map((guest: ICurrentGuest, index: number) => (
-              <tr key={guest.name + Math.random()} style={guest.registered ? { backgroundColor: "rgb(0, 192, 1, 0.2)" } : { backgroundColor: "rgb(230, 0, 0, 0.2)" }}>
+              <tr key={guest.name + Math.random()} style={registeredStyle(guest.registered)}>
                 <td>{++index}</td>
                 <td>{guest.name}</td>
                 <td>{guest.lastName}</td>

@@ -1,4 +1,5 @@
 import { Button, Table } from 'react-bootstrap';
+import { getMenuString } from '../../common/heleprs';
 import { ICurrentGuest } from '../../common/IGuest';
 import { Tabs } from '../../common/Tabs.enum';
 
@@ -7,24 +8,40 @@ type Props = {
     setCurrentTab: React.Dispatch<React.SetStateAction<Tabs>>;
 }
 
+const translate = (text: string) => {
+    switch (text) {
+        case "name":
+            return "Име";
+        case "lastName":
+            return "Фамилия";
+        case "menu":
+            return "Меню";
+        case "nights":
+            return "Нощувки";
+        case "email":
+            return "Поща";
+        case "registered":
+            return "Регистриран";
+    }
+}
+
 export const EndRegistration = (props: Props) => {
     const userProps = Object.entries(props.currentGuest);
     const handleClick = () => {
         props.setCurrentTab(Tabs.AUTH)
     }
-
     return (
         <div>
-            <h1>Вие се регистрирахте успешно.</h1>
+            <h3 className='form-header'>{`${props.currentGuest.name} ще се видим на сватбата или по рано!`}</h3>
             <Table striped bordered hover>
                 <tbody>
                     {userProps.map(p => {
                         const [key, value] = p;
-                        if (key !== 'id') {
+                        if (key !== 'id' && key !== 'registered') {
                             return (
-                                <tr>
-                                    <td>{key}</td>
-                                    <td>{value}</td>
+                                <tr key={`${key}${value}`} >
+                                    <td>{translate(key)}</td>
+                                    <td>{key === "menu" ? getMenuString(value) : value}</td>
                                 </tr>
 
                             )

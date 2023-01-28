@@ -22,3 +22,10 @@ export function handleSubmit (event: any, callback: () => void, setValidated: (v
         return "Вегетарианско"
     }
   }
+
+  export const registeredStyle = (reg: boolean): any => {
+    if (reg) {
+      return { backgroundColor: "rgb(0, 192, 1, 0.2)" }
+    }
+    return { backgroundColor: "rgb(230, 0, 0, 0.2)" }
+  } 

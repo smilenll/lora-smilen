@@ -42,6 +42,7 @@ export const GuestAuth = (props: Props) => {
 
     return (
         <>
+            <h2 className='form-header'>идваш ли ?</h2>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
                     <Form.Control
@@ -69,7 +70,7 @@ export const GuestAuth = (props: Props) => {
                 <Form.Group className={MARGIN_TOP}>
                     {" "}
                     <div className="d-grid">
-                        <Button type="submit" disabled={btnDisabled} variant="outline-warning"> Към регистрация</Button>
+                        <Button type="submit" disabled={btnDisabled} variant="outline-warning"> ИДВАМ</Button>
                     </div>
                 </Form.Group>
             </Form>

@@ -5,6 +5,10 @@ footer {
   text-align: center;
 }
 
+body {
+  font-family: "PoiretOne";
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -49,9 +53,29 @@ footer {
   font-family: "MarckScript";
   text-align: center;
 }
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 50px 0;
+  font-family: "MarckScript";
+  text-align: center;
+}
+
+.form-label {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-family: "PoiretOne";
+}
+
 .parallax-header {
   align-items: center;
-  background-color: rgb(0,0,0,0.3);
+  background-color: rgb(0, 0, 0, 0.3);
   padding: 10px 20px;
   border-radius: 20px;
   color: #fff;
@@ -60,9 +84,8 @@ footer {
   display: flex;
   justify-content: center;
 }
-.parallax-text {
+.parallax-container {
   background-color: rgb(0, 0, 0, 0.5);
-  margin: 50px 20px;
   padding: 10px 20px;
   border-radius: 20px;
   color: #fff;
@@ -70,11 +93,16 @@ footer {
   font-family: "PoiretOne";
 }
 
+.parallax-text {
+  margin: 20px;
+}
+
 .parallax {
   background-attachment: fixed;
   background-image: url("/public/background.jpg");
   background-size: cover;
-  height: 500px; /* Set the height of the section */
+  height: auto; /* Set the height of the section */
+  padding: 50px 20px;
 }
 
 /* Adjust the position of the image when the user scrolls */

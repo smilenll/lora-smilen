@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Tabs } from '../../common/Tabs.enum';
 import { ICurrentGuest } from '../../common/IGuest';
 import { Meal } from '../../common/Meal.enum';
@@ -17,7 +17,7 @@ type Props = {
 export const RegistrationForm = (props: Props) => {
     const [menu, setMenu] = useState(Meal.PORK);
     const [email, setEmail] = useState();
-    const [nights, setNights] = useState(0);
+    const [nights, setNights] = useState(1);
     const [btnDisabled, setBtnDisabled] = useState(false)
     const [validated, setValidated] = useState(false);
 
@@ -37,18 +37,18 @@ export const RegistrationForm = (props: Props) => {
 
     return (
         <>
-            <h3>{`Здравей ${props.currentGuest.name}`}</h3>
-            <p>за да завършиш регистрацията си за КУПОНА моля попълни полетата</p>
+            <h4 className='form-header'>{`Здравей ${props.currentGuest.name}`}</h4>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
-                <InputGroup hasValidation={true}>
+                <Form.Group>
+                    <Form.Label className='form-label'>Къде да изпратим поканата?</Form.Label>
                     <Form.Control
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value as any)}
                         required
                     />
-                </InputGroup>
+                </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
-                    <Form.Label>Предпочитано Меню</Form.Label>
+                    <Form.Label>Какво ще хапваш?</Form.Label>
                     <Form.Select
                         onChange={(e) => setMenu(e.target.value as any)}
                         required
@@ -60,13 +60,13 @@ export const RegistrationForm = (props: Props) => {
                     </Form.Select>
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
-                    <Form.Label>Брой нощувки</Form.Label>
+                    <Form.Label>Колко дни ще останеш?</Form.Label>
                     <Form.Select
                         onChange={(e) => setNights(Number(e.target.value))}
                         required
                     >
-                        {nightsOptions.map((nightOption: any) => (
-                            <option value={nightOption}>{nightOption}</option>
+                        {nightsOptions.map((nights: any) => (
+                            <option value={nights}>{nights}</option>
                         ))}
                     </Form.Select>
                 </Form.Group>
