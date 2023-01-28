@@ -11,6 +11,7 @@ import { ICurrentGuest } from './common/IGuest';
 import { api } from './proxies/apiProxy';
 import { GuestsList } from './components/GuestsList/GuestsList';
 import Countdown from './components/Countdown/Countdown';
+import { Artists } from './components/Artists/Artists';
 
 function App() {
   const [guests, setGuests] = useState([]);
@@ -41,7 +42,7 @@ function App() {
   return (
     <div className='container'>
       <div className="main-header">
-        Сватбата на Лора и Смилен
+        Сватбата на Лора и Смилен :)
       </div>
       <MainCarousel />
       <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
@@ -50,36 +51,32 @@ function App() {
       <div>
         <Countdown />
       </div>
-      <div className='mt-4'>
-        <div className='parallax'>
-          <div className='parallax-container'>
-            <div className='parallax-header'>За Нас</div>
-            <div className='parallax-text'>
-              Известен факт е, че читателя обръща внимание на съдържанието, което чете,
+      <div className='parallax mt-4'>
+        <div className='parallax-container'>
+          <div className='parallax-header'>За Нас</div>
+          <div className='parallax-text'>
+            Известен факт е, че читателя обръща внимание на съдържанието, което чете,
             а не на оформлението му. Свойството на Lorem Ipsum е, че до голяма степен има нормално разпределенато
             "Това е съдържание, това е съдържание". Много системи за публикуване и редактори на Уеб страници използват
             Lorem Ipsum като примерен текстов модел "по подразбиране", поради което при търсене на фразата "lorem ipsum"
             в Интернет ще бъдат открити много сайтове в процес на разработка. Някой от тези сайтове биват променяни с времето,
             а други по случайност или нарочно(за забавление и пр.) биват оставяни в този си незавършен вид.
-            </div>
-            
           </div>
+
         </div>
-        <div>
-          Artisti
-        </div>
-        <div>
-          Нашата история
-        </div>
-        <hr></hr>
-        <GuestsList guests={guests} />
+      </div>
+      <Artists />
+      <h2 className='form-header'>За местоположението !</h2>
+
+      <h2 className='form-header'>Програма ?</h2>
+      <GuestsList guests={guests} />
+
+      <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
         <hr></hr>
         <h1>
           Admin Panel
         </h1>
-        <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
-          <AddGuest handleGuests={handleGuests} />
-        </div>
+        <AddGuest handleGuests={handleGuests} />
       </div>
 
       <footer></footer>
