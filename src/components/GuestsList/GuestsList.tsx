@@ -11,9 +11,20 @@ type Props = {
 export const GuestsList = (props: Props) => {
   const [showGuests, setShowGuests] = useState(false);
 
+  const sortAlphabetic = (items: Array<ICurrentGuest>): Array<ICurrentGuest> => {
+    items.sort(function (a, b) {
+      if (a.registered === b.registered) {
+        return a.name > b.name ? 1 : -1;
+      }
+      return a.registered === false ? 1 : -1;
+    });
+
+    return items
+  }
+
   return (
     <>
-    <br></br>
+      <br></br>
       <div className="d-grid">
         <Button onClick={() => setShowGuests((prevState) => (!prevState))} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
       </div>
@@ -31,12 +42,12 @@ export const GuestsList = (props: Props) => {
             </tr>
           </thead>
           <tbody>
-            {props.guests.map((guest: ICurrentGuest, index: number) => (
+            {sortAlphabetic(props.guests).map((guest: ICurrentGuest, index: number) => (
               <tr key={guest.name + Math.random()} style={registeredStyle(guest.registered)}>
                 <td>{++index}</td>
                 <td>{guest.name}</td>
                 <td>{guest.lastName}</td>
-                <td>{getMenuString(guest.menu)}</td>
+                <td>{getMenuString(Number(guest.menu))}</td>
                 <td>{guest.nights}</td>
                 <td>{guest.email}</td>
               </tr>

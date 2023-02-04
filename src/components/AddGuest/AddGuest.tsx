@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { api } from '../../proxies/apiProxy';
 import "./add-guest.css";
-
+import guests from "./svatba.json"
 
 const MARGIN_TOP = "mt-4";
 
@@ -18,29 +18,21 @@ export const AddGuest = (props: any) => {
     })
     props.handleGuests();
   };
-
+  const seedG = () => {
+    guests.forEach(guest => {
+      api.addGuest({
+        name: guest["First Name"],
+        lastName: guest["Family Name"],
+        registered: false,
+        side: guest["Side"],
+        relationship: guest["Relationship"],
+        menu: 0,
+        nights: Number(guest["Nights"]),
+        email: guest["Email"]
+      })
+    })
+  }
   return (
-    <>
-      <Form.Group className={MARGIN_TOP}>
-        <Form.Control
-          placeholder="Име"
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Form.Group className={MARGIN_TOP}>
-        {" "}
-        <Form.Control
-          placeholder="Фамиля"
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Form.Group className={MARGIN_TOP}>
-        <div className="d-grid">
-                <Button onClick={handleClick} variant="outline-warning">Добави гост</Button>
-            </div>
-      </Form.Group>
-    </>
+      <Button onClick={seedG}> Sync guests</Button>
   );
 };

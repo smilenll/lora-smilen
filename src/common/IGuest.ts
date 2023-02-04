@@ -5,6 +5,8 @@ export interface IGuest {
   name: string;
   lastName: string;
   registered: boolean;
+  side?: string,
+  relationship?: string;
 }
 
 export interface ICurrentGuest extends IGuest {
