@@ -43,6 +43,7 @@ export const GuestAuth = (props: Props) => {
     return (
         <>
             <h2 className='form-header'>идваш ли ?</h2>
+            <p>Данните трябва дасе въведат на кирилица.</p>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
                     <Form.Control
@@ -56,14 +57,6 @@ export const GuestAuth = (props: Props) => {
                     <Form.Control
                         placeholder="Фамиля"
                         onChange={(e) => setLastName(e.target.value)}
-                        required
-                    />
-                </Form.Group>
-                <Form.Group className={MARGIN_TOP}>
-                    {" "}
-                    <Form.Control
-                        placeholder="Ключ за достъп"
-                        onChange={(e) => setAuthKey(e.target.value)}
                         required
                     />
                 </Form.Group>

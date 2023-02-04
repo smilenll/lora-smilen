@@ -43,21 +43,21 @@ export class FirebaseServices implements IDBService {
 
   public authUser = async (name: string, lastName: string, key: string) => {
     const users = await this.queryUser(name, lastName);
-    const isValid = await this.isKeyValid(key);
-
-    if (users.length === 1 && isValid) {
+   
+    if (users.length === 1) {
       return users[0];
     }
-  };
+    };
 
   private queryUser = async (
     name: string,
     lastName: string
   ): Promise<Array<IGuest>> => {
+    
     const q = query(
       this.guestsCollectionRef,
-      where("name", "==", name),
-      where("lastName", "==", lastName)
+      where("name", "==", this.handleCapitalization(name) ),
+      where("lastName", "==", this.handleCapitalization(lastName))
     );
     const querySnapshot = await getDocs(q);
     const users: Array<IGuest> = [];
@@ -82,4 +82,10 @@ export class FirebaseServices implements IDBService {
 
     return isValid;
   };
+
+  private handleCapitalization (string: string): string {
+    const loserCase = string.toLowerCase();
+    const firstCapitalized = loserCase.charAt(0).toUpperCase() + loserCase.slice(1);
+    return firstCapitalized
+  }
 }
