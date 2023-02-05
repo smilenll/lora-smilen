@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: antiquewhite;
   font-family:"PoiretOne", Arial, sans-serif;
+  background-color: #1D3034 !important;
 }
 
 code {
@@ -26,4 +27,7 @@ code {
 
 .btn {
   --bs-btn-border-width: 2px !important;
+}
+.main-header {
+  color:  #dfd5c0
 }

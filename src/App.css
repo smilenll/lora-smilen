@@ -28,7 +28,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #dfd5c0;
 }
 
 .App-link {
@@ -48,6 +48,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   font-size: 50px;
   margin: 50px 0;
   font-family: "MarckScript";
@@ -62,6 +63,15 @@ body {
   margin: 50px 0;
   font-family: "MarckScript";
   text-align: center;
+  color: #dfd5c0;
+}
+.form-header, p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  color: #dfd5c0;
+  font-family: "PoiretOne";
 }
 
 .form-label {
@@ -116,4 +126,17 @@ body {
   height: 100%;
   transform: translateY(50%);
   z-index: -1;
+}
+
+.btn-outline-warning {
+  --bs-btn-color: #dfd5c0 !important;
+  --bs-btn-border-color: #dfd5c0 !important;
+}
+.form-control {
+  background-color: #1d3034 !important;
+  border: 1px solid #dfd5c0 !important;
+}
+
+.main-container {
+  padding: 0 !important;
 }

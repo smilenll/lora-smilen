@@ -4,7 +4,6 @@ import { api } from '../../proxies/apiProxy';
 import "./add-guest.css";
 import guests from "./svatba.json"
 
-const MARGIN_TOP = "mt-4";
 
 export const AddGuest = (props: any) => {
   const [name, setName] = useState("");
@@ -19,20 +18,21 @@ export const AddGuest = (props: any) => {
     props.handleGuests();
   };
   const seedG = () => {
-    guests.forEach(guest => {
-      api.addGuest({
-        name: guest["First Name"],
-        lastName: guest["Family Name"],
-        registered: false,
-        side: guest["Side"],
-        relationship: guest["Relationship"],
-        menu: 0,
-        nights: Number(guest["Nights"]),
-        email: guest["Email"]
-      })
-    })
+    // guests.forEach(guest => {
+    //   api.addGuest({
+    //     name: guest["First Name"],
+    //     lastName: guest["Family Name"],
+    //     registered: false,
+    //     side: guest["Side"],
+    //     relationship: guest["Relationship"],
+    //     menu: 0,
+    //     nights: Number(guest["Nights"]),
+    //     email: guest["Email"]
+    //   })
+    // })
+    alert(JSON.stringify(guests))
   }
   return (
-      <Button onClick={seedG}> Sync guests</Button>
+    <Button onClick={seedG}> Sync guests</Button>
   );
 };
