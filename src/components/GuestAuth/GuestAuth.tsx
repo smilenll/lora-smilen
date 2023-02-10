@@ -16,13 +16,12 @@ type Props = {
 export const GuestAuth = (props: Props) => {
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [authKey, setAuthKey] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(false)
     const [validated, setValidated] = useState(false);
 
     const handleClick = async () => {
         setBtnDisabled(true);
-        const dbUser = await api.authUser(name, lastName, authKey) as IGuest;
+        const dbUser = await api.authUser(name, lastName, "authKey") as IGuest;
         setBtnDisabled(false);
 
         if (!dbUser) {
@@ -43,7 +42,7 @@ export const GuestAuth = (props: Props) => {
     return (
         <>
             <h2 className='form-header'>Ще идваш ли?</h2>
-            <p>Данните трябва да се въведат на кирилица.</p>
+            <p className='form-header' style={{fontSize: "20px"}}>Данните трябва да се въведат на кирилица.</p>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
                     <Form.Control

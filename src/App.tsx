@@ -44,13 +44,12 @@ function App() {
   return (
     <Container className='main-container'>
       <img width="100%" src="banner.webp" alt="banner" />
-      
       <Container>
         <MainHeader />
         <div>
-          <Countdown />
+          <Countdown countDownDate={new Date("Jun 11, 2023 16:00:00").getTime()} />
         </div>
-        <MainCarousel/>
+        <MainCarousel />
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           {renderTab()}
         </div>

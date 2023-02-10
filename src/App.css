@@ -65,7 +65,8 @@ body {
   text-align: center;
   color: #dfd5c0;
 }
-.form-header, p {
+.form-header,
+p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,6 +133,12 @@ body {
   --bs-btn-color: #dfd5c0 !important;
   --bs-btn-border-color: #dfd5c0 !important;
 }
+.btn-outline-warning:hover {
+  --bs-btn-hover-bg: #dfd5c0 !important;
+  --bs-btn-border-color: #dfd5c0 !important;
+  --bs-btn-border-color: #dfd5c0 !important;
+  --bs-btn-hover-bg: #dfd5c0 !important;
+}
 .form-control {
   background-color: #1d3034 !important;
   border: 1px solid #dfd5c0 !important;
@@ -139,4 +146,8 @@ body {
 
 .main-container {
   padding: 0 !important;
+}
+
+th {
+  color: #dfd5c0;
 }

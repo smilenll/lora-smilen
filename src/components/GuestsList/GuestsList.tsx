@@ -21,6 +21,7 @@ export const GuestsList = (props: Props) => {
 
     return items
   }
+  const color = { color: "#dfd5c0" };
 
   return (
     <>
@@ -44,12 +45,12 @@ export const GuestsList = (props: Props) => {
           <tbody>
             {sortAlphabetic(props.guests).map((guest: ICurrentGuest, index: number) => (
               <tr key={guest.name + Math.random()} style={registeredStyle(guest.registered)}>
-                <td>{++index}</td>
-                <td>{guest.name}</td>
-                <td>{guest.lastName}</td>
-                <td>{getMenuString(Number(guest.menu))}</td>
-                <td>{guest.nights}</td>
-                <td>{guest.email}</td>
+                <td style={color}>{++index}</td>
+                <td style={color}>{guest.name}</td>
+                <td style={color}>{guest.lastName}</td>
+                <td style={color}>{getMenuString(Number(guest.menu))}</td>
+                <td style={color}>{guest.nights}</td>
+                <td style={color}>{guest.email}</td>
               </tr>
             ))}
           </tbody>
