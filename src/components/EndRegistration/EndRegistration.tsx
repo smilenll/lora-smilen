@@ -20,6 +20,10 @@ const translate = (text: string) => {
             return "Нощувки";
         case "email":
             return "Поща";
+        case "side":
+            return "От страната на";
+        case "relationship":
+            return "От групата на";
         case "registered":
             return "Регистриран";
     }
@@ -31,7 +35,7 @@ export const EndRegistration = (props: Props) => {
         props.setCurrentTab(Tabs.AUTH)
     }
     const color = { color: "#dfd5c0" };
-    
+
     return (
         <div>
             <h3 className='form-header'>{`${props.currentGuest.name} ще се видим на сватбата или по рано!`}</h3>
