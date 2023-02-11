@@ -1,17 +1,16 @@
 import { Carousel } from 'react-bootstrap';
 
 export const MainCarousel = () => {
-    return (
-        <Carousel>
-        <Carousel.Item>
-          <img width="100%" src="19.jpg" alt="me" />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img width="100%" src="2.jpg" alt="1" />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img width="100%" src="3.jpg" alt="2" />
-        </Carousel.Item>
-      </Carousel>
-    )
+  const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const pics = images.map(img => (
+    <Carousel.Item key={img}>
+      <img width="100%" src={`mainCarousel/${img}.jpg`} alt={img.toString()} />
+    </Carousel.Item>
+  ))
+
+  return (
+    <Carousel>
+      {pics}
+    </Carousel>
+  )
 }

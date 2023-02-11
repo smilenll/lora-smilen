@@ -54,7 +54,7 @@ function App() {
           {renderTab()}
         </div>
 
-        <div className='parallax mt-4'>
+        <div className='parallax mt-5'>
           <div className='parallax-container'>
             <div className='parallax-header'>За Нас</div>
             <div className='parallax-text'>

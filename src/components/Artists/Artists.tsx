@@ -20,7 +20,7 @@ export const Artists = () => {
                     <Carousel.Caption>
                         <div className='on-pic-container'>
                             <h3 className='on-pic-header'>Яна Пенева</h3>
-                            <p className='on-pic-text'>Фотографът който разказва истрии с всеки кадър. Благодарим ти че ще си с нас :)</p>
+                            <p className='on-pic-text'>Фотографът, който разказва истрии с всеки кадър. Благодарим ти че ще си с нас :)</p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -28,12 +28,12 @@ export const Artists = () => {
                     <img width="100%" src="q.jpg" alt="2" />
                     <Carousel.Caption>
                         <div className='on-pic-container'>
-                            <h3 className='on-pic-header'>Звука на Цигулката</h3>
+                            <h3 className='on-pic-header'>Звукът на Цигулката</h3>
                             <p className='on-pic-text'>Винаги има време да си затворим очите и да се потопим в мелодията на класиката</p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <img width="100%" src="dlg.jpg" alt="2" />
                     <Carousel.Caption>
                         <div className='on-pic-container'>
@@ -59,7 +59,7 @@ export const Artists = () => {
                             <p className='on-pic-text'>Време е да чуем грамуфоните !</p>
                         </div>
                     </Carousel.Caption>
-                </Carousel.Item>
+                </Carousel.Item> */}
             </Carousel>
         </>
     )

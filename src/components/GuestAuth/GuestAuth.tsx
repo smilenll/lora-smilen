@@ -42,7 +42,7 @@ export const GuestAuth = (props: Props) => {
     return (
         <>
             <h2 className='form-header'>Ще идваш ли?</h2>
-            <p className='form-header' style={{fontSize: "20px"}}>Данните трябва да се въведат на кирилица.</p>
+            <p className='info'>Данните трябва да се въведат на кирилица.</p>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group className={MARGIN_TOP}>
                     <Form.Control

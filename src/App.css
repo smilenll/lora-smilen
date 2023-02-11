@@ -51,8 +51,28 @@ body {
   flex-direction: column;
   font-size: 50px;
   margin: 50px 0;
-  font-family: "MarckScript";
+  font-family: "AmaticSC";
   text-align: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  margin: 20px 0;
+  text-align: center;
+  font-family: "PoiretOne";
+}
+
+.main-header > h1 {
+  font-weight: 400;
+  font-size: 60px;
+}
+
+.main-header > h2 {
+  font-size: 30px;
 }
 
 .form-header {
@@ -61,7 +81,7 @@ body {
   justify-content: center;
   font-size: 30px;
   margin: 50px 0;
-  font-family: "MarckScript";
+  font-family: "AmaticSC";
   text-align: center;
   color: #dfd5c0;
 }
@@ -72,7 +92,7 @@ p {
   justify-content: center;
   align-self: center;
   color: #dfd5c0;
-  font-family: "PoiretOne";
+  font-family: "AmaticSC";
 }
 
 .form-label {
@@ -114,6 +134,7 @@ p {
   background-size: cover;
   height: auto; /* Set the height of the section */
   padding: 50px 20px;
+  border-radius: 5px;
 }
 
 /* Adjust the position of the image when the user scrolls */
@@ -150,4 +171,8 @@ p {
 
 th {
   color: #dfd5c0;
+}
+
+.carousel-inner {
+  border-radius: 5px !important;
 }

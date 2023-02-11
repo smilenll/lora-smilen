@@ -2,7 +2,8 @@ export function MainHeader() {
     return (
         <div className="main-header">
             <h1>
-                ЛОРА & СМИЛЕН
+                <strong>
+                    </strong>ЛОРА & СМИЛЕН
             </h1>
             <h2>
                 Ви канят на 

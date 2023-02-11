@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: 'AmaticSC';
+  src: local('AmaticSC'), url(./../public/fonts/AmaticSC-Regular.ttf) format('truetype');
+}
+
+@font-face {
   font-family: 'PoiretOne';
   src: local('PoiretOne'), url(./../public/fonts/PoiretOne-Regular.ttf) format('truetype');
 }
