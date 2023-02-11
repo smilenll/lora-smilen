@@ -30,6 +30,8 @@ export const EndRegistration = (props: Props) => {
     const handleClick = () => {
         props.setCurrentTab(Tabs.AUTH)
     }
+    const color = { color: "#dfd5c0" };
+    
     return (
         <div>
             <h3 className='form-header'>{`${props.currentGuest.name} ще се видим на сватбата или по рано!`}</h3>
@@ -40,8 +42,8 @@ export const EndRegistration = (props: Props) => {
                         if (key !== 'id' && key !== 'registered') {
                             return (
                                 <tr key={`${key}${value}`} >
-                                    <td>{translate(key)}</td>
-                                    <td>{key === "menu" ? getMenuString(value) : value}</td>
+                                    <td style={color}>{translate(key)}</td>
+                                    <td style={color}>{key === "menu" ? getMenuString(value) : value}</td>
                                 </tr>
 
                             )

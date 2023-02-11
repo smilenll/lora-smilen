@@ -1,8 +1,8 @@
 import { ICurrentGuest } from "../common/IGuest";
 import { IDBService } from "../common/IDBServices";
 
-const user = { name: "not reg", lastName: "LN not reg", registered: false, menu: 1, nights:99, email: "MAIL not reg" };
-const user2 = { name: "registered", lastName: "LN registered", registered: true, menu: 1, nights:99, email: "MAIL registered" };
+const user = { name: "a", lastName: "a", registered: false, menu: 1, nights:99, email: "MAIL not reg" };
+const user2 = { name: "b", lastName: "b", registered: true, menu: 1, nights:99, email: "MAIL registered" };
 
 
 export class MockServices implements IDBService {

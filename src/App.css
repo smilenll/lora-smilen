@@ -64,6 +64,7 @@ body {
   margin: 20px 0;
   text-align: center;
   font-family: "PoiretOne";
+  color: #dfd5c0;
 }
 
 .main-header > h1 {
@@ -162,8 +163,19 @@ p {
   --bs-btn-hover-border-color: #dfd5c0 !important;
 }
 .form-control {
+  color: #dfd5c0 !important;
   background-color: #1d3034 !important;
   border: 1px solid #dfd5c0 !important;
+}
+
+.form-select {
+  border: 1px solid #dfd5c0 !important;
+  color: #dfd5c0 !important;
+  background-color: #1d3034 !important;
+}
+
+.form-select:not(:first-of-type) {
+  color: #dfd5c0 !important;
 }
 
 .main-container {
