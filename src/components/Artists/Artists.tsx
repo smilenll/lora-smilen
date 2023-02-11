@@ -5,6 +5,7 @@ export const Artists = () => {
     return (
         <>
             <h3 className='form-header'>Артисти !</h3>
+            <p className='info'>За нашето събитие сме поканили няколко артиста, на които се възхишаваме и искаме да споделим тяхното искуство с вас.</p>
             <Carousel>
                 <Carousel.Item>
                     <img width="100%" src="slavin.jpg" alt="me" />

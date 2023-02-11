@@ -159,6 +159,7 @@ p {
   --bs-btn-border-color: #dfd5c0 !important;
   --bs-btn-border-color: #dfd5c0 !important;
   --bs-btn-hover-bg: #dfd5c0 !important;
+  --bs-btn-hover-border-color: #dfd5c0 !important;
 }
 .form-control {
   background-color: #1d3034 !important;

@@ -14,6 +14,7 @@ import Countdown from './components/Countdown/Countdown';
 import { Artists } from './components/Artists/Artists';
 import { Container } from 'react-bootstrap';
 import { MainHeader } from './components/MainHeader/MainHeader';
+import { Utopia } from './components/Utopia/Utopia';
 
 function App() {
   const [guests, setGuests] = useState([]);
@@ -69,9 +70,14 @@ function App() {
           </div>
         </div>
         <Artists />
-        <h2 className='form-header'>За местоположението !</h2>
+        <Utopia />
 
-        <h2 className='form-header'>Програма ?</h2>
+
+        <h2 className='form-header'>Програма</h2>
+        <p className='info'>14:00 Настаняване</p>
+        <p className='info'>13:00 Напитки на плажа</p>
+        <p className='info'>16:00 Ритуал</p>
+        <p className='info'>16:00 Ресторант</p>
         <GuestsList guests={guests} />
 
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
