@@ -1,11 +1,13 @@
 import { ICurrentGuest } from "../common/IGuest";
 import { IDBService } from "../common/IDBServices";
 
-const user = { name: "MockName", lastName: "MockLastName", registered: false, menu: 1, nights:99, email: "mail mail" };
+const user = { name: "not reg", lastName: "LN not reg", registered: false, menu: 1, nights:99, email: "MAIL not reg" };
+const user2 = { name: "registered", lastName: "LN registered", registered: true, menu: 1, nights:99, email: "MAIL registered" };
+
 
 export class MockServices implements IDBService {
   public getGuests = async () => {
-    return [user];
+    return [user, user2];
   };
 
   public addGuest = async (data: any) => {

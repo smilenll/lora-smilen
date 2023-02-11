@@ -75,9 +75,10 @@ function App() {
 
         <h2 className='form-header'>Програма</h2>
         <p className='info'>14:00 Настаняване</p>
-        <p className='info'>13:00 Напитки на плажа</p>
+        <p className='info'>15:00 Напитки на плажа</p>
         <p className='info'>16:00 Ритуал</p>
-        <p className='info'>16:00 Ресторант</p>
+        <p className='info'>18:00 Ресторант</p>
+        <p className='info'>24:00 Вътрешен бар</p>
         <GuestsList guests={guests} />
 
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
