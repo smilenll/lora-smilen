@@ -15,11 +15,11 @@ export function handleSubmit (event: any, callback: () => void, setValidated: (v
   export   const getMenuString = (menu: Meal | undefined) => {
     switch (menu) {
       case menu = Meal.PORK:
-        return "Свинско"
+        return "Меню със свинско"
       case menu = Meal.FISH:
-        return "Риба"
+        return "Меню с риба"
       case menu = Meal.VEGGIE:
-        return "Вегетарианско"
+        return "Вегетарианско меню"
     }
   }
 

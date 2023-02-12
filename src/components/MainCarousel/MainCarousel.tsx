@@ -9,7 +9,7 @@ export const MainCarousel = () => {
   ))
 
   return (
-    <Carousel variant="dark" interval={10000}>
+    <Carousel variant="dark" interval={4000}>
       {pics}
     </Carousel>
   )

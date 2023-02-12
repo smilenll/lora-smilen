@@ -19,7 +19,7 @@ const translate = (text: string) => {
         case "nights":
             return "Нощувки";
         case "email":
-            return "Поща";
+            return "Е-Поща";
         case "side":
             return "От страната на";
         case "relationship":
@@ -34,11 +34,14 @@ export const EndRegistration = (props: Props) => {
     const handleClick = () => {
         props.setCurrentTab(Tabs.AUTH)
     }
-    const color = { color: "#dfd5c0" };
+    const style = {
+        color: "#dfd5c0",
+        fontFamily: "PoiretOne",
+    };
 
     return (
         <div>
-            <h3 className='form-header'>{`${props.currentGuest.name} ще се видим на сватбата или по рано!`}</h3>
+            <h3 className='form-header'>{`Благодаря, ${props.currentGuest.name}. Ще се видим на сватбата или по-рано !`}</h3>
             <Table striped bordered hover>
                 <tbody>
                     {userProps.map(p => {
@@ -46,16 +49,14 @@ export const EndRegistration = (props: Props) => {
                         if (key !== 'id' && key !== 'registered') {
                             return (
                                 <tr key={`${key}${value}`} >
-                                    <td style={color}>{translate(key)}</td>
-                                    <td style={color}>{key === "menu" ? getMenuString(value) : value}</td>
+                                    <td style={style}><strong>{translate(key)}</strong></td>
+                                    <td style={style}>{key === "menu" ? getMenuString(value) : value}</td>
                                 </tr>
 
                             )
                         }
                     })}
                 </tbody>
-
-
             </Table>
             <div className="d-grid">
                 <Button onClick={handleClick} variant="outline-warning">Нова регистрация</Button>

@@ -69,25 +69,29 @@ function App() {
 
           </div>
         </div>
+
+        <h3 className='form-header'>Кумове !</h3>
+        <p className='info'>За нашето събитие сме поканили няколко артисти, на които се възхишаваме и искаме да споделим тяхното изкуство с всички вас.</p>
+
         <Artists />
         <Utopia />
 
 
-        <h2 className='form-header'>Програма</h2>
-        <p className='info'>14:00 Настаняване</p>
-        <p className='info'>15:00 Напитки на плажа</p>
-        <p className='info'>16:00 Ритуал</p>
-        <p className='info'>18:00 Ресторант</p>
-        <p className='info'>24:00 Вътрешен бар</p>
+        <h2 className='form-header'>Програма !</h2>
+        <p className='info'>14:00 Настаняване в хотела</p>
+        <p className='info'>15:30 Напитки на плажа</p>
+        <p className='info'>16:30 Ритуал на плажа</p>
+        <p className='info'>18:00 Начало на вечерята</p>
+        <p className='info'>23:30 Парти във вътрешния бар</p>
         <GuestsList guests={guests} />
 
-        <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+        {/* <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           <hr></hr>
           <h1>
             Admin Panel
           </h1>
           <AddGuest handleGuests={handleGuests} />
-        </div>
+        </div> */}
       </Container>
 
 

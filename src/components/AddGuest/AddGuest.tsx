@@ -18,18 +18,18 @@ export const AddGuest = (props: any) => {
     props.handleGuests();
   };
   const seedG = () => {
-    // guests.forEach(guest => {
-    //   api.addGuest({
-    //     name: guest["First Name"],
-    //     lastName: guest["Family Name"],
-    //     registered: false,
-    //     side: guest["Side"],
-    //     relationship: guest["Relationship"],
-    //     menu: 0,
-    //     nights: Number(guest["Nights"]),
-    //     email: guest["Email"]
-    //   })
-    // })
+    guests.forEach(guest => {
+      api.addGuest({
+        name: guest["First Name"],
+        lastName: guest["Family Name"],
+        registered: false,
+        side: guest["Side"],
+        relationship: guest["Relationship"],
+        menu: 0,
+        nights: Number(guest["Nights"]),
+        email: guest["Email"]
+      })
+    })
     alert(JSON.stringify(guests))
   }
   return (

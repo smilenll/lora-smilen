@@ -37,7 +37,7 @@ export const RegistrationForm = (props: Props) => {
 
     return (
         <>
-            <h4 className='form-header'>{`Здравей ${props.currentGuest.name}`}</h4>
+            <h4 className='form-header'>{`Здравей, ${props.currentGuest.name} !`}</h4>
             <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e, handleClick, setValidated)}>
                 <Form.Group>
                     <Form.Label className='info'>Къде да изпратим поканата?</Form.Label>
@@ -48,7 +48,7 @@ export const RegistrationForm = (props: Props) => {
                     />
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
-                    <Form.Label className='info' >Какво ще хапваш?</Form.Label>
+                    <Form.Label className='info' >Какво меню предпочиташ?</Form.Label>
                     <Form.Select
                         onChange={(e) => setMenu(e.target.value as any)}
                         required
@@ -69,6 +69,7 @@ export const RegistrationForm = (props: Props) => {
                             <option value={nights}>{nights}</option>
                         ))}
                     </Form.Select>
+                    <p className='info'><i>* Нощувката в неделя, 11 юни, се покрива от младоженците за всички гости. Освобождаването на стаите е в 12:00ч. За втора вечер, моля посетете сайта на <a href="https://utopiaforest.bg/" >Utopia Forest</a> за актуални цени.</i></p>
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
                     <div className="d-grid">

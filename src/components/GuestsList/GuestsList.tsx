@@ -38,7 +38,7 @@ export const GuestsList = (props: Props) => {
               <th>Име</th>
               <th>Фамилия</th>
               <th>Вид меню</th>
-              <th>Брой нощивки</th>
+              <th>Брой нощувки</th>
               <th>Е-mail</th>
             </tr>
           </thead>

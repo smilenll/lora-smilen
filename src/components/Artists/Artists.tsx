@@ -5,14 +5,14 @@ export const Artists = () => {
     return (
         <>
             <h3 className='form-header'>Артисти !</h3>
-            <p className='info'>За нашето събитие сме поканили няколко артиста, на които се възхишаваме и искаме да споделим тяхното искуство с вас.</p>
+            <p className='info'>За нашето събитие сме поканили няколко артисти, на които се възхишаваме и искаме да споделим тяхното изкуство с всички вас.</p>
             <Carousel>
                 <Carousel.Item>
                     <img width="100%" src="slavin.jpg" alt="me" />
                     <Carousel.Caption>
                         <div className='on-pic-container'>
                             <h3 className='on-pic-header'>Славин Славчев</h3>
-                            <p className='on-pic-text'>Иии нека бъде РОК за първо място :) ОСНОВЕН ИЗПЪЛНИТЕЛ</p>
+                            <p className='on-pic-text'>Иии нека бъде РОК като за първо място :)</p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -21,11 +21,11 @@ export const Artists = () => {
                     <Carousel.Caption>
                         <div className='on-pic-container'>
                             <h3 className='on-pic-header'>Яна Пенева</h3>
-                            <p className='on-pic-text'>Фотографът, който разказва истрии с всеки кадър. Благодарим ти че ще си с нас :)</p>
+                            <p className='on-pic-text'>Фотографът, който разказва истрии с всеки кадър. Благодарим ти че ще си част от тях.</p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <img width="100%" src="q.jpg" alt="2" />
                     <Carousel.Caption>
                         <div className='on-pic-container'>
@@ -33,7 +33,7 @@ export const Artists = () => {
                             <p className='on-pic-text'>Винаги има време да си затворим очите и да се потопим в мелодията на класиката</p>
                         </div>
                     </Carousel.Caption>
-                </Carousel.Item>
+                </Carousel.Item> */}
                 {/* <Carousel.Item>
                     <img width="100%" src="dlg.jpg" alt="2" />
                     <Carousel.Caption>

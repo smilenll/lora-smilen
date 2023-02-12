@@ -39,7 +39,7 @@ const Countdown: React.FC<Props> = ({ countDownDate }) => {
   return (
     <div className='main-header'>
       <h2>
-        След <strong>{days}</strong> дни, <strong>{hours}</strong> часа, <strong>{minutes}</strong> минути и <strong>{seconds}</strong> секиунди !
+        След <strong>{days}</strong> дни, <strong>{hours}</strong> часа, <strong>{minutes}</strong> минути и <strong>{seconds}</strong> секунди !
       </h2>
     </div>
   );
