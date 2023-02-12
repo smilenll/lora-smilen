@@ -44,7 +44,6 @@ export const RegistrationForm = (props: Props) => {
                     <Form.Control
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value as any)}
-                        required
                     />
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
