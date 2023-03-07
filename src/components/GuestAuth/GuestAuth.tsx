@@ -26,7 +26,7 @@ export const GuestAuth = (props: Props) => {
 
         if (!dbUser) {
             setValidated(false)
-            alert("Грешни данни")
+            alert("Грешни данни... Или сме ви записали различно името :) Виж в таблицата с гости.")
             return
         }
         props.setCurrentGuest(dbUser)
