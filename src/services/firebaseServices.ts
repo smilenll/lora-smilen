@@ -42,6 +42,9 @@ export class FirebaseServices implements IDBService {
   };
 
   public authUser = async (name: string, lastName: string, key: string) => {
+    name = name.replace(/\s+/g, '');
+    lastName = lastName.replace(/\s+/g, '');
+    
     const users = await this.queryUser(name, lastName);
    
     if (users.length === 1) {

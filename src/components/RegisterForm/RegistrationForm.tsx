@@ -16,7 +16,7 @@ type Props = {
 
 export const RegistrationForm = (props: Props) => {
     const [menu, setMenu] = useState(Meal.PORK);
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState("");
     const [nights, setNights] = useState(1);
     const [btnDisabled, setBtnDisabled] = useState(false)
     const [validated, setValidated] = useState(false);
@@ -33,7 +33,7 @@ export const RegistrationForm = (props: Props) => {
     };
 
     const availableMeals = [Meal.PORK, Meal.FISH, Meal.VEGGIE]
-    const nightsOptions = [1, 2, 4]
+    const nightsOptions = [1, 2, 3, 4]
 
     return (
         <>

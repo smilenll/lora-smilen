@@ -3,6 +3,7 @@ import { Button, Table } from 'react-bootstrap'
 import { getMenuString, registeredStyle } from '../../common/heleprs'
 import { ICurrentGuest } from '../../common/IGuest'
 import { Meal } from '../../common/Meal.enum'
+import { api } from '../../proxies/apiProxy'
 
 type Props = {
   guests: Array<ICurrentGuest>
@@ -21,6 +22,13 @@ export const GuestsList = (props: Props) => {
 
     return items
   }
+
+  const handleRevert = (guest: ICurrentGuest) => {
+    console.log(guest)
+    guest.registered = false
+    api.updateGuest(guest)
+  }
+
   const color = { color: "#dfd5c0" };
 
   return (
@@ -37,7 +45,7 @@ export const GuestsList = (props: Props) => {
               <th>#</th>
               <th>Име</th>
               <th>Фамилия</th>
-              <th>Вид меню</th>
+              {/* <th>Вид меню</th> */}
               <th>Брой нощувки</th>
               <th>Е-mail</th>
             </tr>
@@ -48,9 +56,11 @@ export const GuestsList = (props: Props) => {
                 <td style={color}>{++index}</td>
                 <td style={color}>{guest.name}</td>
                 <td style={color}>{guest.lastName}</td>
-                <td style={color}>{getMenuString(Number(guest.menu))}</td>
+                {/* <td style={color}>{getMenuString(Number(guest.menu))}</td> */}
                 <td style={color}>{guest.nights}</td>
-                <td style={color}>{guest.email}</td>
+                <td style={color}>{guest.email}
+                  {/* <Button onClick={() => handleRevert(guest)}>Revert</Button> */}
+                </td>
               </tr>
             ))}
           </tbody>

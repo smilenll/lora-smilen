@@ -37,19 +37,21 @@ export const EndRegistration = (props: Props) => {
     const style = {
         color: "#dfd5c0",
         fontFamily: "PoiretOne",
+        width: "50%",
+        borderStyle: "0"
     };
 
     return (
         <div>
             <h3 className='form-header'>{`Благодаря, ${props.currentGuest.name}. Ще се видим на сватбата или по-рано !`}</h3>
-            <Table striped bordered hover>
+            <Table hover>
                 <tbody>
-                    {userProps.map(p => {                    
+                    {userProps.map(p => {
                         const [key, value] = p;
                         if (key !== 'id' && key !== 'registered') {
                             return (
                                 <tr key={`${key}${value}`} >
-                                    <td style={style}><strong>{translate(key)}</strong></td>
+                                    <td style={{ ...style, textAlign: "right" }}><strong>{translate(key)}</strong></td>
                                     <td style={style}>{key === "menu" ? getMenuString(Number(value)) : value}</td>
                                 </tr>
 
