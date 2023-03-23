@@ -15,6 +15,7 @@ import { Artists } from './components/Artists/Artists';
 import { Container } from 'react-bootstrap';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { Utopia } from './components/Utopia/Utopia';
+import { Comments } from './components/Comments/Comments';
 
 function App() {
   const [guests, setGuests] = useState([]);
@@ -67,11 +68,11 @@ function App() {
           </div>
         </div>
         <div>
-           <h3 className='form-header'>Кумове !</h3>
-        <p className='info'>Запознайте се с нашите кумове, Жан и Екатерина. За нас е чест, че ще ни кумуват.</p>
-        <img width="100%" src="kumove.jpg"/>
+          <h3 className='form-header'>Кумове !</h3>
+          <p className='info'>Запознайте се с нашите кумове, Жан и Екатерина. За нас е чест, че ще ни кумуват!</p>
+          <img width="100%" style={{ borderRadius: "5px" }} src="kumove.jpg" alt="Кумове" />
         </div>
-       
+
         <Artists />
         <Utopia />
 
@@ -82,6 +83,8 @@ function App() {
         <p className='info'>16:30 Ритуал на плажа</p>
         <p className='info'>18:00 Начало на вечерята</p>
         <p className='info'>23:30 Парти във вътрешния бар</p>
+        <Comments />
+        <h3 className='form-header'>Допълнителна информация</h3>
         <GuestsList guests={guests} />
 
         {/* <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>

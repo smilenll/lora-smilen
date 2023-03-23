@@ -194,3 +194,25 @@ th {
   color: "white" !important;
   font-family: "PoiretOne" !important;
 }
+.comment-container {
+  padding: 10px 0;
+  border-radius: 5px;
+}
+.comment-bubble {
+  background-color: rgb(223, 213, 192, 0.6);
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 10px auto;
+}
+
+.comment-author {
+  font-family: "AmaticSC";
+    color: #1d3034;
+    font-size: 25px;
+}
+
+.comment-text {
+  font-family: "PoiretOne";
+  color: #1d3034;
+  font-size: 20px;
+}

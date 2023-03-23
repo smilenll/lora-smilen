@@ -10,6 +10,7 @@ import {
 } from "@firebase/firestore";
 import { ICurrentGuest, IGuest } from "../common/IGuest";
 import { IDBService } from '../common/IDBServices';
+import { IComment } from '../common/IComment';
 
 export class FirebaseServices implements IDBService {
   guestsCollectionRef = collection(db, "guests");
@@ -44,7 +45,7 @@ export class FirebaseServices implements IDBService {
   public authUser = async (name: string, lastName: string, key: string) => {
     name = name.replace(/\s+/g, '');
     lastName = lastName.replace(/\s+/g, '');
-    
+
     const users = await this.queryUser(name, lastName);
    
     if (users.length === 1) {
@@ -91,4 +92,24 @@ export class FirebaseServices implements IDBService {
     const firstCapitalized = loserCase.charAt(0).toUpperCase() + loserCase.slice(1);
     return firstCapitalized
   }
+
+  // COMMENTS
+  commentsCollectionRef = collection(db, "comments");
+
+  public getComments = async () => {
+    const data = await await getDocs(this.commentsCollectionRef);
+
+    const pureDate = data.docs.map((doc: any) => ({ ...doc.data() }));
+
+    return pureDate as Array<any>;
+  };
+
+  public addComment = async (data: IComment): Promise<boolean> => {
+    try {
+      addDoc(this.commentsCollectionRef, data);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
 }

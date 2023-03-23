@@ -53,7 +53,7 @@ export const RegistrationForm = (props: Props) => {
                         required
                     >
                         {availableMeals.map((meal: any) => (
-                            <option value={meal}>{getMenuString(meal)}</option>
+                            <option value={meal} key={meal}>{getMenuString(meal)}</option>
                         ))}
 
                     </Form.Select>
@@ -65,7 +65,7 @@ export const RegistrationForm = (props: Props) => {
                         required
                     >
                         {nightsOptions.map((nights: any) => (
-                            <option value={nights}>{nights}</option>
+                            <option value={nights} key={nights}>{nights}</option>
                         ))}
                     </Form.Select>
                     <p className='info'><i>* Нощувката в неделя, 11 юни, се покрива от младоженците за всички гости. Освобождаването на стаите е в 12:00ч. За втора вечер, моля посетете сайта на <a href="https://utopiaforest.bg/" >Utopia Forest</a> за актуални цени.</i></p>
