@@ -207,12 +207,18 @@ th {
 
 .comment-author {
   font-family: "AmaticSC";
-    color: #1d3034;
-    font-size: 25px;
+  color: #1d3034;
+  font-size: 25px;
 }
 
 .comment-text {
   font-family: "PoiretOne";
   color: #1d3034;
   font-size: 20px;
+}
+tr {
+  border-style: 0 !important;
+}
+td {
+  border-style: 0 !important;
 }

@@ -87,13 +87,8 @@ function App() {
         <h3 className='form-header'>Допълнителна информация</h3>
         <GuestsList guests={guests} />
 
-        {/* <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
-          <hr></hr>
-          <h1>
-            Admin Panel
-          </h1>
-          <AddGuest handleGuests={handleGuests} />
-        </div> */}
+        
+        {/* <AddGuest handleGuests={handleGuests} /> */}
       </Container>
 
 

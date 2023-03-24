@@ -33,7 +33,7 @@ export const RegistrationForm = (props: Props) => {
     };
 
     const availableMeals = [Meal.PORK, Meal.FISH, Meal.VEGGIE]
-    const nightsOptions = [1, 2, 3, 4]
+    const nightsOptions = [0, 1, 2, 3, 4]
 
     return (
         <>

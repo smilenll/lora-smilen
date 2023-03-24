@@ -33,6 +33,13 @@ export const AddGuest = (props: any) => {
     alert(JSON.stringify(guests))
   }
   return (
-    <Button onClick={seedG}> Sync guests</Button>
+    <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+          <hr></hr>
+          <h1>
+            Admin Panel
+          </h1>
+          <Button onClick={seedG}> Sync guests</Button>
+        </div>
+    
   );
 };

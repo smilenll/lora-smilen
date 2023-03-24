@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { getMenuString, registeredStyle } from '../../common/heleprs'
 import { ICurrentGuest } from '../../common/IGuest'
-import { Meal } from '../../common/Meal.enum'
 import { api } from '../../proxies/apiProxy'
 
 type Props = {
@@ -29,23 +28,28 @@ export const GuestsList = (props: Props) => {
     api.updateGuest(guest)
   }
 
-  const color = { color: "#dfd5c0" };
+  const handleDelete = (guest: ICurrentGuest) => {
+    console.log(guest);
+
+    (api as any).deleteGuest(guest);
+  }
+
+  const color = { color: "#dfd5c0", borderStyle: "0"};
 
   return (
     <>
       <br></br>
-      <div className="d-grid">
+      <div className="d-grid offset-lg-3 col-lg-6 col-sm-12 mt-5">
         <Button onClick={() => setShowGuests((prevState) => (!prevState))} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
       </div>
       <br></br>
       {showGuests && (
-        <Table striped bordered hover>
+        <Table striped hover>
           <thead>
             <tr>
               <th>#</th>
               <th>Име</th>
-              <th>Фамилия</th>
-              {/* <th>Вид меню</th> */}
+              <th>Вид меню</th>
               <th>Брой нощувки</th>
               <th>Е-mail</th>
             </tr>
@@ -54,12 +58,12 @@ export const GuestsList = (props: Props) => {
             {sortAlphabetic(props.guests).map((guest: ICurrentGuest, index: number) => (
               <tr key={guest.name + Math.random()} style={registeredStyle(guest.registered)}>
                 <td style={color}>{++index}</td>
-                <td style={color}>{guest.name}</td>
-                <td style={color}>{guest.lastName}</td>
-                {/* <td style={color}>{getMenuString(Number(guest.menu))}</td> */}
+                <td style={color}>{guest.name} {guest.lastName}</td>
+                <td style={color}>{getMenuString(Number(guest.menu))}</td>
                 <td style={color}>{guest.nights}</td>
                 <td style={color}>{guest.email}
-                  {/* <Button onClick={() => handleRevert(guest)}>Revert</Button> */}
+                  {/* <Button onClick={() => handleRevert(guest)}>Revert</Button>
+                  <Button variant="danger" onClick={() => handleDelete(guest)}>Delete</Button> */}
                 </td>
               </tr>
             ))}

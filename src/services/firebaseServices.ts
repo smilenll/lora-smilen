@@ -7,6 +7,7 @@ import {
   where,
   doc,
   updateDoc,
+  deleteDoc
 } from "@firebase/firestore";
 import { ICurrentGuest, IGuest } from "../common/IGuest";
 import { IDBService } from '../common/IDBServices';
@@ -42,16 +43,25 @@ export class FirebaseServices implements IDBService {
     }
   };
 
+  public deleteGuest = async (guest: ICurrentGuest): Promise<boolean> => {
+    const guestDoc = doc(db, "guests" as any, guest.id as any);
+    try {
+      await deleteDoc(guestDoc);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
   public authUser = async (name: string, lastName: string, key: string) => {
     name = name.replace(/\s+/g, '');
     lastName = lastName.replace(/\s+/g, '');
 
     const users = await this.queryUser(name, lastName);
    
-    if (users.length === 1) {
-      return users[0];
-    }
+    return users[0];
     };
+
 
   private queryUser = async (
     name: string,

@@ -17,18 +17,18 @@ export function handleSubmit(
 
 export const getMenuString = (menu: Meal | undefined) => {
   switch (menu) {
-    case (menu = Meal.PORK):
+    case (Meal.PORK):
       return "Меню със свинско";
-    case (menu = Meal.FISH):
+    case (Meal.FISH):
       return "Меню с риба";
-    case (menu = Meal.VEGGIE):
+    case (Meal.VEGGIE):
       return "Вегетарианско меню";
   }
 };
 
 export const registeredStyle = (reg: boolean): any => {
   if (reg) {
-    return { backgroundColor: "rgb(0, 192, 1, 0.2)" };
+    return { backgroundColor: "rgb(0, 192, 1, 0.1)"};
   }
-  return { backgroundColor: "rgb(230, 0, 0, 0.2)" };
+  return { backgroundColor: "rgb(230, 0, 0, 0.1)"};
 };
