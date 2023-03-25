@@ -16,6 +16,8 @@ import { Container } from 'react-bootstrap';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { Utopia } from './components/Utopia/Utopia';
 import { Comments } from './components/Comments/Comments';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [guests, setGuests] = useState([]);
@@ -85,14 +87,23 @@ function App() {
         <p className='info'>23:30 Парти във вътрешния бар</p>
         <Comments />
         <h3 className='form-header'>Допълнителна информация</h3>
+        <p className='info offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+          <FontAwesomeIcon icon={faStar} /> Следете сайта в деня на събитието за допълнителна информация по настаняването и други детайли. <FontAwesomeIcon icon={faStar} /></p>
         <GuestsList guests={guests} />
 
-        
+
         {/* <AddGuest handleGuests={handleGuests} /> */}
       </Container>
 
 
-      <footer></footer>
+      <footer>
+        {/* <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+          <img width="25%" src="footer/react.png" alt="react" />
+          <img width="25%" src="footer/firebase.png" alt="react" />
+          <img width="25%" src="footer/typescript.png" alt="react" />
+          <img width="25%" src="footer/bootstrap.png" alt="react" />
+        </div> */}
+      </footer>
     </ Container>
   );
 }

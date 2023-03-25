@@ -34,7 +34,8 @@ export const GuestsList = (props: Props) => {
     (api as any).deleteGuest(guest);
   }
 
-  const color = { color: "#dfd5c0", borderStyle: "0"};
+  const color = { color: "#dfd5c0", borderStyle: "0", fontFamily: 'AmaticSC', fontSize: '20px' };
+  const header = { fontFamily: "PoiretOne", fontSize: '20px' }
 
   return (
     <>
@@ -47,11 +48,11 @@ export const GuestsList = (props: Props) => {
         <Table striped hover>
           <thead>
             <tr>
-              <th>#</th>
-              <th>Име</th>
-              <th>Вид меню</th>
-              <th>Брой нощувки</th>
-              <th>Е-mail</th>
+              <th style={header}>#</th>
+              <th style={header}>Име</th>
+              <th style={header}>Вид меню</th>
+              <th style={header}>Брой нощувки</th>
+              <th style={header}>Е-mail</th>
             </tr>
           </thead>
           <tbody>

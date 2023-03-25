@@ -68,7 +68,7 @@ export const RegistrationForm = (props: Props) => {
                             <option value={nights} key={nights}>{nights}</option>
                         ))}
                     </Form.Select>
-                    <p className='info'><i>* Нощувката в неделя, 11 юни, се покрива от младоженците за всички гости. Освобождаването на стаите е в 12:00ч. За втора вечер, моля посетете сайта на <a href="https://utopiaforest.bg/" >Utopia Forest</a> за актуални цени.</i></p>
+                    <p className='info'><i>* Нощувката в неделя, 11 юни, се покрива от младоженците за всички гости. Освобождаването на стаите е в 12:00ч. За допълнителни нощувки, моля посетете сайта на <a href="https://utopiaforest.bg/" >Utopia Forest</a> за актуални цени.</i></p>
                 </Form.Group>
                 <Form.Group className={MARGIN_TOP}>
                     <div className="d-grid">

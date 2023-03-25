@@ -7,11 +7,11 @@ import {
   where,
   doc,
   updateDoc,
-  deleteDoc
+  deleteDoc,
 } from "@firebase/firestore";
 import { ICurrentGuest, IGuest } from "../common/IGuest";
-import { IDBService } from '../common/IDBServices';
-import { IComment } from '../common/IComment';
+import { IDBService } from "../common/IDBServices";
+import { IComment } from "../common/IComment";
 
 export class FirebaseServices implements IDBService {
   guestsCollectionRef = collection(db, "guests");
@@ -54,23 +54,21 @@ export class FirebaseServices implements IDBService {
   };
 
   public authUser = async (name: string, lastName: string, key: string) => {
-    name = name.replace(/\s+/g, '');
-    lastName = lastName.replace(/\s+/g, '');
+    name = name.replace(/\s+/g, "");
+    lastName = lastName.replace(/\s+/g, "");
 
     const users = await this.queryUser(name, lastName);
-   
-    return users[0];
-    };
 
+    return users[0];
+  };
 
   private queryUser = async (
     name: string,
     lastName: string
   ): Promise<Array<IGuest>> => {
-    
     const q = query(
       this.guestsCollectionRef,
-      where("name", "==", this.handleCapitalization(name) ),
+      where("name", "==", this.handleCapitalization(name)),
       where("lastName", "==", this.handleCapitalization(lastName))
     );
     const querySnapshot = await getDocs(q);
@@ -97,10 +95,11 @@ export class FirebaseServices implements IDBService {
     return isValid;
   };
 
-  private handleCapitalization (string: string): string {
+  private handleCapitalization(string: string): string {
     const loserCase = string.toLowerCase();
-    const firstCapitalized = loserCase.charAt(0).toUpperCase() + loserCase.slice(1);
-    return firstCapitalized
+    const firstCapitalized =
+      loserCase.charAt(0).toUpperCase() + loserCase.slice(1);
+    return firstCapitalized;
   }
 
   // COMMENTS
@@ -116,7 +115,7 @@ export class FirebaseServices implements IDBService {
 
   public addComment = async (data: IComment): Promise<boolean> => {
     try {
-      addDoc(this.commentsCollectionRef, data);
+      addDoc(this.commentsCollectionRef, { ...data, dateTime: new Date() });
       return true;
     } catch (error) {
       return false;
