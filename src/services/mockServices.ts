@@ -11,6 +11,10 @@ export class MockServices implements IDBService {
     return [user, user2];
   };
 
+  public isKeyValid = async (key: string) => {
+    return true;
+  };
+
   public addGuest = async (data: any) => {
     return true;
   };

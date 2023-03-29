@@ -11,7 +11,7 @@ export const Utopia = () => {
     return (
         <>
             <h2 className='form-header'>За местоположението !</h2>
-            <p className='info'>Utopia е дефиниция за съвършен свят, различен от истинския.
+            <p className='info'><a className='info' href="https://utopiaforest.bg/bg/">Utopia Forest</a> е дефиниция за съвършен свят, различен от истинския.
                 В търсене на съвършенство, избрахме място, което всеки би описал точно с тези думи.
                 Но по-важна е утопията, която ще създадем заедно с вас.</p>
 

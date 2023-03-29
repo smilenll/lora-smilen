@@ -3,13 +3,18 @@ import { Button, Table } from 'react-bootstrap'
 import { getMenuString, registeredStyle } from '../../common/heleprs'
 import { ICurrentGuest } from '../../common/IGuest'
 import { api } from '../../proxies/apiProxy'
+import { AuthAdmin } from '../AuthAdmin/AuthAdmin'
+import { EditGuest } from '../EditGuest/EditGuest'
 
-type Props = {
-  guests: Array<ICurrentGuest>
-}
 
-export const GuestsList = (props: Props) => {
+export const GuestsList = () => {
   const [showGuests, setShowGuests] = useState(false);
+  const [guests, setGuests] = useState([]);
+
+  const handleGuests = async () => {
+    await api.getGuests().then((res: any) => setGuests(res))
+    setShowGuests((prevState) => (!prevState))
+  }
 
   const sortAlphabetic = (items: Array<ICurrentGuest>): Array<ICurrentGuest> => {
     items.sort(function (a, b) {
@@ -22,18 +27,6 @@ export const GuestsList = (props: Props) => {
     return items
   }
 
-  const handleRevert = (guest: ICurrentGuest) => {
-    console.log(guest)
-    guest.registered = false
-    api.updateGuest(guest)
-  }
-
-  const handleDelete = (guest: ICurrentGuest) => {
-    console.log(guest);
-
-    (api as any).deleteGuest(guest);
-  }
-
   const color = { color: "#dfd5c0", borderStyle: "0", fontFamily: 'AmaticSC', fontSize: '20px' };
   const header = { fontFamily: "PoiretOne", fontSize: '20px' }
 
@@ -41,7 +34,7 @@ export const GuestsList = (props: Props) => {
     <>
       <br></br>
       <div className="d-grid offset-lg-3 col-lg-6 col-sm-12 mt-5">
-        <Button onClick={() => setShowGuests((prevState) => (!prevState))} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
+        <Button onClick={() => handleGuests()} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
       </div>
       <br></br>
       {showGuests && (
@@ -56,16 +49,13 @@ export const GuestsList = (props: Props) => {
             </tr>
           </thead>
           <tbody>
-            {sortAlphabetic(props.guests).map((guest: ICurrentGuest, index: number) => (
+            {sortAlphabetic(guests).map((guest: ICurrentGuest, index: number) => (
               <tr key={guest.name + Math.random()} style={registeredStyle(guest.registered)}>
                 <td style={color}>{++index}</td>
                 <td style={color}>{guest.name} {guest.lastName}</td>
                 <td style={color}>{getMenuString(Number(guest.menu))}</td>
                 <td style={color}>{guest.nights}</td>
-                <td style={color}>{guest.email}
-                  {/* <Button onClick={() => handleRevert(guest)}>Revert</Button>
-                  <Button variant="danger" onClick={() => handleDelete(guest)}>Delete</Button> */}
-                </td>
+                <AuthAdmin currentGuest={guest} style={color}/>
               </tr>
             ))}
           </tbody>

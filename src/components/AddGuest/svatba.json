@@ -1,9 +1,51 @@
 [
   {
-    "First Name": "Станислав",
-    "Family Name": "Дончев",
+    "First Name": "Нели",
+    "Family Name": "Павлова",
     "Side": "Смилен",
     "Relationship": "Friends",
+    "Email": "",
+    "Nights": 0
+  },  {
+    "First Name": "Габриела",
+    "Family Name": "Бонева",
+    "Side": "Лора",
+    "Relationship": "Friends",
+    "Email": "",
+    "Nights": 0
+  },  {
+    "First Name": "Даниеле",
+    "Family Name": "Пичинели",
+    "Side": "Лора",
+    "Relationship": "Friends",
+    "Email": "",
+    "Nights": 0
+  }, {
+    "First Name": "Димитър",
+    "Family Name": "Димитров",
+    "Side": "Лора",
+    "Relationship": "Family",
+    "Email": "",
+    "Nights": 0
+  }, {
+    "First Name": "Радостина",
+    "Family Name": "Димитрова",
+    "Side": "Лора",
+    "Relationship": "Family",
+    "Email": "",
+    "Nights": 0
+  }, {
+    "First Name": "Малден",
+    "Family Name": "Димитров",
+    "Side": "Лора",
+    "Relationship": "Family",
+    "Email": "",
+    "Nights": 0
+  }, {
+    "First Name": "Димана",
+    "Family Name": "Димитрова",
+    "Side": "Лора",
+    "Relationship": "Family",
     "Email": "",
     "Nights": 0
   }

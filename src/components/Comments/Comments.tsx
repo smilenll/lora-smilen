@@ -38,6 +38,12 @@ export const Comments = () => {
         })
     }
 
+    const getTime = (dbTime: any) => {
+        const momentObj = moment.unix(dbTime.seconds).add(dbTime.nanoseconds / 1000000000, 'seconds');
+
+        return momentObj.format('Do MMMM  YYYY HH:mm');
+    }
+
     return (
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
             <h2 className='form-header'>Книга за похвали и смешки :)</h2>
@@ -47,9 +53,9 @@ export const Comments = () => {
                         <div className='comment-author'>
                             <div>
                                 <FontAwesomeIcon icon={faSun} size="xs" />
-                                {comment.name}
+                                {' '}{comment.name}
                             </div>
-                            <div className='comment-time'>{moment(comment.timeStamp).format('Do MMMM  YYYY HH:mm')}</div>
+                            <div className='comment-time'>{getTime(comment.dateTime)}</div>
                         </div>
                         <div className='comment-text'>{comment.text}</div>
                     </div>

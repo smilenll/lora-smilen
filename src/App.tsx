@@ -20,17 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
-  const [guests, setGuests] = useState([]);
   const [currentTab, setCurrentTab] = useState(Tabs.AUTH);
   const [currentGuest, setCurrentGuest] = useState<ICurrentGuest | undefined>();
-
-  const handleGuests = () => {
-    api.getGuests().then((res: any) => setGuests(res))
-  }
-
-  useEffect(() => {
-    handleGuests()
-  }, [currentGuest])
 
   const renderTab = () => {
     switch (currentTab) {
@@ -86,13 +77,13 @@ function App() {
         <p className='info'>18:00 Начало на вечерята</p>
         <p className='info'>23:30 Парти във вътрешния бар</p>
         <Comments />
+        <h2 className='form-header'>Подаръци</h2>
+        <p className='info'>Все още не сме решили, но трябва да са лесни за транспортиране към USA</p>
         <h3 className='form-header'>Допълнителна информация</h3>
         <p className='info offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           <FontAwesomeIcon icon={faStar} /> Следете сайта в деня на събитието за допълнителна информация по настаняването и други детайли. <FontAwesomeIcon icon={faStar} /></p>
-        <GuestsList guests={guests} />
-
-
-        {/* <AddGuest handleGuests={handleGuests} /> */}
+        <GuestsList />
+        {/* <AddGuest /> */}
       </Container>
 
 

@@ -80,14 +80,13 @@ export class FirebaseServices implements IDBService {
     return users;
   };
 
-  private isKeyValid = async (key: string): Promise<boolean> => {
+  public isKeyValid = async (key: string): Promise<boolean> => {
     const authCollectionRef = collection(db, "auth");
-    const admin = "admin";
     const q = query(authCollectionRef, where("key", "==", key));
     const keySnapshot = await getDocs(q);
     let isValid = false;
     keySnapshot.forEach((doc) => {
-      if (doc.data().key === admin) {
+      if (doc.data().key === key) {
         isValid = true;
       }
     });

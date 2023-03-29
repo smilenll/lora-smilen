@@ -8,5 +8,6 @@ export interface IDBService {
     authUser: (name: string, lastName: string, key: string) => Promise<IGuest | undefined>;
     getComments: () => Promise<Array<IComment>>;
     addComment: (data: IComment) => Promise<boolean>;
+    isKeyValid: (password: string) => Promise<boolean>;
 
   }
