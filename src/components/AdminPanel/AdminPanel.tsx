@@ -1,10 +1,11 @@
 import { Button } from "react-bootstrap";
 import { api } from '../../proxies/apiProxy';
-import "./add-guest.css";
 import guests from "./svatba.json"
+import { ROOMS } from './rooms';
+import { Accommodation } from '../WeddingDay/Accommodation/components/Accommodation';
 
 
-export const AddGuest = () => {
+export const AdminPanel = () => {
   const seedG = () => {
     guests.forEach(guest => {
       api.addGuest({
@@ -20,13 +21,28 @@ export const AddGuest = () => {
     })
     alert(JSON.stringify(guests))
   }
+
+  const seedR = () => {
+    ROOMS.forEach(room => {
+      api.addRoom({
+        hotel: room.hotel,
+        room: room.room,
+        capacity: room.capacity,
+        occupants: JSON.stringify(room.occupants),
+      })
+    })
+    alert("ROOMS ADDED")
+  }
+
   return (
-    <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+    <div>
           <hr></hr>
           <h1>
             Admin Panel
           </h1>
+          <Accommodation />
           <Button onClick={seedG}> Sync guests</Button>
+          <Button onClick={seedR}> Sync Rooms</Button>
         </div>
     
   );

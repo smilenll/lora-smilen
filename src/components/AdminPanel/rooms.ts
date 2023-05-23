@@ -1,0 +1,270 @@
+import { Hotel } from "../../common/Hotel.enum";
+import { IRoom } from "../WeddingDay/Accommodation/interfaces/IRoom";
+
+export const ROOMS: Array<IRoom> = [
+  // INitial record
+  // {
+  //   hotel: Hotel.UTOPIA,
+  //   room: 101,
+  //   capacity: 5,
+  //   occupants: [],
+  // },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 102,
+    capacity: 5,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 103,
+    capacity: 5,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 104,
+    capacity: 5,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 105,
+    capacity: 5,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 106,
+    capacity: 5,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 32,
+    capacity: 4,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 31,
+    capacity: 4,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 4,
+    capacity: 4,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 14,
+    capacity: 4,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 24,
+    capacity: 4,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 21,
+    capacity: 3,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 31,
+    capacity: 4,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 33,
+    capacity: 3,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 34,
+    capacity: 3,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 1,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 3,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 5,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 11,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 13,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 15,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 23,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 25,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 2,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 12,
+    capacity: 2,
+    occupants: [],
+  },{
+    hotel: Hotel.UTOPIA,
+    room: 22,
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Blue Whale",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Little Mermaid",
+    capacity: 3,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Secret Garden",
+    capacity: 1,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Romantic",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "The Deck",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Infinity Blue",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Captain's Cabin",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Happy Family",
+    capacity: 4,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Meditation",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Columbus",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Magellan",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Vasco Da Gama",
+    capacity: 3,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Marco Polo",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Captain Cook",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Ben Gunn",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Poseidon",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Demetra",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Peace",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Serenity",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Penelope",
+    capacity: 2,
+    occupants: [],
+  },
+  {
+    hotel: Hotel.ANASTASIA,
+    room: "Odysseus",
+    capacity: 2,
+    occupants: [],
+  },
+];

@@ -12,6 +12,19 @@ import {
 import { ICurrentGuest, IGuest } from "../common/IGuest";
 import { IDBService } from "../common/IDBServices";
 import { IComment } from "../common/IComment";
+import { IRoom } from '../components/WeddingDay/Accommodation/interfaces/IRoom';
+
+
+const sortAlphabetic = (items: Array<ICurrentGuest>): Array<ICurrentGuest> => {
+  items.sort(function (a, b) {
+    if (a.registered === b.registered) {
+      return a.name > b.name ? 1 : -1;
+    }
+    return a.registered === false ? 1 : -1;
+  });
+
+  return items
+}
 
 export class FirebaseServices implements IDBService {
   guestsCollectionRef = collection(db, "guests");
@@ -20,8 +33,8 @@ export class FirebaseServices implements IDBService {
     const data = await await getDocs(this.guestsCollectionRef);
 
     const pureDate = data.docs.map((doc: any) => ({ ...doc.data() }));
-
-    return pureDate as Array<IGuest>;
+    
+    return sortAlphabetic(pureDate as Array<IGuest>);
   };
 
   public addGuest = async (data: any) => {
@@ -115,6 +128,35 @@ export class FirebaseServices implements IDBService {
   public addComment = async (data: IComment): Promise<boolean> => {
     try {
       addDoc(this.commentsCollectionRef, { ...data, dateTime: new Date() });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  roomsCollectionRef = collection(db, "rooms");
+
+  public getRooms = async () => {
+    const data = await await getDocs(this.roomsCollectionRef);
+
+    const pureDate = data.docs.map((doc: any) => ({ id: doc.id, ...doc.data() } as any));
+
+    return pureDate as Array<IRoom>;
+  };
+
+  public addRoom = async (data: any) => {
+    try {
+      addDoc(this.roomsCollectionRef, data);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  public updateRoom = async (room: IRoom): Promise<boolean> => {
+    const roomDoc = doc(db, "rooms" as any, room.id as any);
+    try {
+      await updateDoc(roomDoc, room as any);
       return true;
     } catch (error) {
       return false;

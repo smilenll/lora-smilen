@@ -230,3 +230,9 @@ tr {
 td {
   border-style: 0 !important;
 }
+
+.room-card {
+  background-color: wheat;
+  border-radius: 10px;
+  padding: 27px;
+}

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
-import { AddGuest } from './components/AddGuest/AddGuest';
+import {AdminPanel } from './components/AdminPanel/AdminPanel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MainCarousel } from './components/MainCarousel/MainCarousel';
 import { RegistrationForm } from './components/RegisterForm/RegistrationForm';
@@ -8,7 +8,6 @@ import { GuestAuth } from './components/GuestAuth/GuestAuth';
 import { EndRegistration } from './components/EndRegistration/EndRegistration';
 import { Tabs } from './common/Tabs.enum';
 import { ICurrentGuest } from './common/IGuest';
-import { api } from './proxies/apiProxy';
 import { GuestsList } from './components/GuestsList/GuestsList';
 import Countdown from './components/Countdown/Countdown';
 import { Artists } from './components/Artists/Artists';
@@ -44,6 +43,7 @@ function App() {
         <div>
           <Countdown countDownDate={new Date("Jun 11, 2023 16:00:00").getTime()} />
         </div>
+        {/* <AdminPanel /> */}
         <MainCarousel />
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           {renderTab()}
@@ -83,7 +83,6 @@ function App() {
         <p className='info offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           <FontAwesomeIcon icon={faStar} /> Следете сайта в деня на събитието за допълнителна информация по настаняването и други детайли. <FontAwesomeIcon icon={faStar} /></p>
         <GuestsList />
-        {/* <AddGuest /> */}
       </Container>
 
 

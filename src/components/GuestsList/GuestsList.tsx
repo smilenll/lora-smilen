@@ -27,6 +27,15 @@ export const GuestsList = () => {
     return items
   }
 
+  const filterNights = () => {
+    const filtered = guests.filter((g: any) => (g?.nights > 1))
+    if(filtered < guests) {
+      setGuests(filtered)
+    } else {
+      api.getGuests().then((res: any) => setGuests(res))
+    }
+  }
+
   const color = { color: "#dfd5c0", borderStyle: "0", fontFamily: 'AmaticSC', fontSize: '20px' };
   const header = { fontFamily: "PoiretOne", fontSize: '20px' }
 
@@ -44,7 +53,7 @@ export const GuestsList = () => {
               <th style={header}>#</th>
               <th style={header}>Име</th>
               <th style={header}>Вид меню</th>
-              <th style={header}>Брой нощувки</th>
+              <th style={header}>Брой нощувки <Button onClick={() => filterNights()} variant="outline-warning">+1</Button></th>
               <th style={header}>Е-mail</th>
             </tr>
           </thead>

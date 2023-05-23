@@ -1,3 +1,4 @@
+import { IRoom } from '../components/WeddingDay/Accommodation/interfaces/IRoom';
 import { IComment } from './IComment';
 import { IGuest, ICurrentGuest } from './IGuest';
 
@@ -9,5 +10,7 @@ export interface IDBService {
     getComments: () => Promise<Array<IComment>>;
     addComment: (data: IComment) => Promise<boolean>;
     isKeyValid: (password: string) => Promise<boolean>;
-
-  }
+    getRooms: () => Promise<Array<IRoom>>;
+    addRoom: (data: IRoom) => Promise<boolean>;
+    updateRoom:(room: IRoom) => Promise<boolean>;
+  } 
