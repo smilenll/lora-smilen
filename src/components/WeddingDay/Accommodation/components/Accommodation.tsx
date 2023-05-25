@@ -3,8 +3,9 @@ import { IGuest } from '../../../../common/IGuest';
 import { api } from '../../../../proxies/apiProxy';
 import { Room } from './Room';
 import { IRoom } from '../interfaces/IRoom';
-import { Button, Dropdown } from 'react-bootstrap';
+import { Button, Dropdown, Form } from 'react-bootstrap';
 import { Occupant } from './Occupant';
+import { getMenuString } from '../../../../common/heleprs';
 
 const filterFreeGuests = (rooms: Array<IRoom>, guests: Array<IGuest>): Array<IGuest> => {
   const fleered = guests.filter(g => {
@@ -17,6 +18,7 @@ export const Accommodation = () => {
   const [guests, setGuests] = useState<Array<IGuest>>([]);
   const [noRoomGuests, setNoRoomGuests] = useState<Array<IGuest>>([]);
   const [rooms, setRooms] = useState<Array<IRoom>>([]);
+  const [filteredRooms, setFilteredRooms] = useState<Array<IRoom>>([]);
 
   const setDependency = async () => {
     const guests = await api.getGuests()
@@ -25,6 +27,7 @@ export const Accommodation = () => {
     const rooms = await api.getRooms()
     rooms.forEach((r) => r.occupants = JSON.parse(r.occupants));
 
+    setFilteredRooms(rooms)
     setRooms(rooms)
 
     setNoRoomGuests(filterFreeGuests(rooms, guests))
@@ -45,8 +48,8 @@ export const Accommodation = () => {
     return occupants;
   }
 
-  const submitOccupants = (room: IRoom) => {
-    setDependency()
+  const submitOccupants = async (room: IRoom) => {
+    await setDependency()
     api.updateRoom(room)
   }
   useEffect(() => {
@@ -55,13 +58,14 @@ export const Accommodation = () => {
   }, [])
   const noRoom2Nights = noRoomGuests.filter((nG: any) => nG.nights > 1)
 
-  const filterOccupants = (occupant?: IGuest) => {
-    if (!occupant) {
-      setDependency();
+  const filterOccupants = async (occupant?: string) => {
+    if (occupant) {
+      const foundRoom: any = rooms.find(r => r.occupants.some((o: string) => o === occupant))
+      setFilteredRooms([foundRoom])
     } else {
-      const foundRoom: any = rooms.find(r => r.occupants.some((o: string) => o === occupant.id))
-      setRooms([foundRoom])
+      setFilteredRooms(rooms)
     }
+
   }
 
   return (<div className="row">
@@ -75,21 +79,21 @@ export const Accommodation = () => {
     <h3 style={{ color: "red" }}>Не настанени повече от ден {noRoom2Nights.length}</h3>
     <h3 style={{ color: "red" }}>Капацитет {getCapacity()}</h3>
     <h3 style={{ color: "red" }}>Свободни легла {getCapacity() - getOccupantsSum()}</h3> */}
-    <Dropdown className='mb-4'>
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic" className='btn btn-outline-warning'>
-        Избери гост...
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item key={Math.random()} onClick={() => filterOccupants()}>Покажи всички</Dropdown.Item>
+    <Form.Group className='mb-4'>
+      <Form.Label className='info' >Избери гост </Form.Label>
+      <Form.Select
+        onChange={(e) => filterOccupants(e.target.value as any)}
+        required
+      >
+        <option value="">Всички гости</option>
         {guests.map(g => (
-          <Dropdown.Item key={g.id} onClick={() => filterOccupants(g)}>{g.name + " " + g.lastName}</Dropdown.Item>
+          <option value={g.id} key={g.id}>{g.name + " " + g.lastName}</option>
         ))}
-      </Dropdown.Menu>
-    </Dropdown>
+      </Form.Select>
+    </Form.Group>
     <br />
-    {rooms.map(r => r && (
+    {filteredRooms.map(r => r && (
       <Room key={r.room} room={r} guests={guests} noRoomGuests={noRoomGuests} submitOccupants={submitOccupants} />))
-    }
+    } 
   </div>)
 }

@@ -75,10 +75,10 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
                     <Card.Title className="mb-1">
                         <RoomTextRow label={<div><FontAwesomeIcon icon={faHotel} size="xs" color={color()}/> Хотел</div> } value={room.hotel} />
                     </Card.Title>
-                    <Card.Subtitle className="mb-1">
+                    <Card.Subtitle className="mb-1" key="1">
                         <RoomTextRow label={<div><FontAwesomeIcon icon={faDoorClosed} size="xs" /> Стая</div>} value={room.room} />
                     </Card.Subtitle>
-                    <Card.Subtitle className="mb-2">
+                    <Card.Subtitle className="mb-2" key="2">
                         <RoomTextRow label={<div><FontAwesomeIcon icon={faMaximize} size="xs" /> Капацитет</div>} value={room.capacity} />
                     </Card.Subtitle>
                     <AuthAdmin>
@@ -93,7 +93,7 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
                                     required
                                 >   <option>Гости...</option>
                                     {noRoomGuests.map((g: IGuest) => (
-                                        <option value={g.id} key={g.id + g.name}>{g.name} {g.lastName}</option>
+                                        <option value={g.id} key={g.id}>{g.name} {g.lastName}</option>
                                     ))}
                                 </Form.Select>
                             </Form.Group>
