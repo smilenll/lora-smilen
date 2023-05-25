@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import {AdminPanel } from './components/AdminPanel/AdminPanel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MainCarousel } from './components/MainCarousel/MainCarousel';
 import { RegistrationForm } from './components/RegisterForm/RegistrationForm';
@@ -17,6 +16,7 @@ import { Utopia } from './components/Utopia/Utopia';
 import { Comments } from './components/Comments/Comments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Accommodation } from './components/WeddingDay/Accommodation/components/Accommodation';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tabs.AUTH);
@@ -43,6 +43,7 @@ function App() {
         <div>
           <Countdown countDownDate={new Date("Jun 11, 2023 16:00:00").getTime()} />
         </div>
+        <Accommodation />
         {/* <AdminPanel /> */}
         <MainCarousel />
         <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>

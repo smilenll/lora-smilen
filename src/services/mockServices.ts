@@ -3,6 +3,7 @@ import { IDBService } from "../common/IDBServices";
 import { IComment } from "../common/IComment";
 import finalGuests from "../components/WeddingDay/finalGuests.json";
 import { IRoom } from "../components/WeddingDay/Accommodation/interfaces/IRoom";
+import { ITable } from '../components/AdminPanel/tables';
 
 const user = {
   name: "a",
@@ -59,6 +60,18 @@ export class MockServices implements IDBService {
   };
 
   public updateRoom = async (room: IRoom): Promise<boolean> => {
+    return true;
+  };
+
+  public getTables = async () => {
+    return [];
+  };
+
+  public addTable = async (data: any) => {
+    return true;
+  };
+
+  public updateTable = async (table: ITable): Promise<boolean> => {
     return true;
   };
 }

@@ -1,3 +1,4 @@
+import { ITable } from '../components/AdminPanel/tables';
 import { IRoom } from '../components/WeddingDay/Accommodation/interfaces/IRoom';
 import { IComment } from './IComment';
 import { IGuest, ICurrentGuest } from './IGuest';
@@ -13,4 +14,7 @@ export interface IDBService {
     getRooms: () => Promise<Array<IRoom>>;
     addRoom: (data: IRoom) => Promise<boolean>;
     updateRoom:(room: IRoom) => Promise<boolean>;
+    getTables: () => Promise<Array<ITable>>;
+    addTable: (data: ITable) => Promise<boolean>;
+    updateTable:(table: ITable) => Promise<boolean>;
   } 

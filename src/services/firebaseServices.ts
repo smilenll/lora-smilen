@@ -13,6 +13,7 @@ import { ICurrentGuest, IGuest } from "../common/IGuest";
 import { IDBService } from "../common/IDBServices";
 import { IComment } from "../common/IComment";
 import { IRoom } from '../components/WeddingDay/Accommodation/interfaces/IRoom';
+import { ITable } from '../components/AdminPanel/tables';
 
 
 const sortAlphabetic = (items: Array<ICurrentGuest>): Array<ICurrentGuest> => {
@@ -157,6 +158,35 @@ export class FirebaseServices implements IDBService {
     const roomDoc = doc(db, "rooms" as any, room.id as any);
     try {
       await updateDoc(roomDoc, room as any);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  tableCollectionRef = collection(db, "tables");
+
+  public getTables = async () => {
+    const data = await await getDocs(this.tableCollectionRef);
+
+    const pureDate = data.docs.map((doc: any) => ({ id: doc.id, ...doc.data() } as any));
+
+    return pureDate as Array<ITable>;
+  };
+
+  public addTable = async (data: any) => {
+    try {
+      addDoc(this.tableCollectionRef, data);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  public updateTable = async (table: ITable): Promise<boolean> => {
+    const tableDoc = doc(db, "tables" as any, table.id as any);
+    try {
+      await updateDoc(tableDoc, table as any);
       return true;
     } catch (error) {
       return false;

@@ -232,7 +232,58 @@ td {
 }
 
 .room-card {
-  background-color: wheat;
+  background-color: rgb(223, 213, 192, 0.6);
   border-radius: 10px;
   padding: 27px;
+  height: 100%
+}
+.occupant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.room-row-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.room-label {
+  font-family: "PoiretOne";
+  color: #1d3034;
+  font-size: 20px;
+}
+
+.room-text {
+  font-family: "AmaticSC";
+  color: #1d3034;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.occupant-row-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.occupant-name {
+  font-family: "AmaticSC";
+  color: #1d3034;
+  font-size: 20px;
+  font-weight: 600;
+}
+.occupant-nights {
+  font-family: "PoiretOne";
+  font-weight: 600;
+}
+
+.tableVertical {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  background-color: blue;
+}
+
+.tableHorizontal {
+  background-color: green;
 }

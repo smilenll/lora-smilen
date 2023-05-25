@@ -29,7 +29,7 @@ export const GuestsList = () => {
 
   const filterNights = () => {
     const filtered = guests.filter((g: any) => (g?.nights > 1))
-    if(filtered < guests) {
+    if (filtered < guests) {
       setGuests(filtered)
     } else {
       api.getGuests().then((res: any) => setGuests(res))
@@ -64,7 +64,12 @@ export const GuestsList = () => {
                 <td style={color}>{guest.name} {guest.lastName}</td>
                 <td style={color}>{getMenuString(Number(guest.menu))}</td>
                 <td style={color}>{guest.nights}</td>
-                <AuthAdmin currentGuest={guest} style={color}/>
+                <td>
+                  <AuthAdmin currentGuest={guest} style={color}>
+                    <td><p>{guest.email ? guest.email : "No address"}</p></td>
+                    <EditGuest currentGuest={guest} />
+                  </AuthAdmin>
+                </td>
               </tr>
             ))}
           </tbody>

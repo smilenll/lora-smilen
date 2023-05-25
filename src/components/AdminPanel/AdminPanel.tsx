@@ -3,6 +3,8 @@ import { api } from '../../proxies/apiProxy';
 import guests from "./svatba.json"
 import { ROOMS } from './rooms';
 import { Accommodation } from '../WeddingDay/Accommodation/components/Accommodation';
+import { Tables } from '../WeddingDay/Tables/Tables';
+import { TABLES } from './tables';
 
 
 export const AdminPanel = () => {
@@ -34,16 +36,29 @@ export const AdminPanel = () => {
     alert("ROOMS ADDED")
   }
 
+  const seedT = () => {
+    TABLES.forEach(table => {
+      api.addTable({
+        number: table.number,
+        capacity: table.capacity,
+        direction: table.direction,
+        occupants: JSON.stringify(table.occupants),
+      })
+    })
+    alert("TABLES ADDED")
+  }
+
   return (
     <div>
-          <hr></hr>
-          <h1>
-            Admin Panel
-          </h1>
-          <Accommodation />
-          <Button onClick={seedG}> Sync guests</Button>
-          <Button onClick={seedR}> Sync Rooms</Button>
-        </div>
-    
+      <hr></hr>
+      <h1>
+        Admin Panel
+      </h1>
+      <Tables />
+      <Button onClick={seedG}> Sync guests</Button>
+      <Button onClick={seedR}> Sync Rooms</Button>
+      <Button onClick={seedT}> Sync Tables</Button>
+    </div>
+
   );
 };

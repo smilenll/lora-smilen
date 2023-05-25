@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { api } from '../../proxies/apiProxy';
-import { EditGuest } from '../EditGuest/EditGuest';
-
 
 export const AuthAdmin = (props: any) => {
   const [visible, setVisible] = useState(false);
@@ -18,22 +16,22 @@ export const AuthAdmin = (props: any) => {
     }
   }
 
-  const clickEmail = () => {
+  const clickContainer = () => {
     setVisible((prev => !prev))
-    if(!visible && showEdit) {
+    if (!visible && showEdit) {
       setShowEdit(false)
       setVisible(false)
     }
   }
 
-  const email = props.currentGuest.email ? props.currentGuest.email : "No address"
-  return (
-    <td><p onClick={clickEmail}>{email}</p>
-      {
+  return (<>
+    <div onClick={clickContainer}>{props.children[0]}</div>
+    {
         visible && (
           <Form onSubmit={(e) => authUser(e)}>
             <Form.Group>
               <Form.Control
+              type='password'
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value as any)}
               />
@@ -43,12 +41,14 @@ export const AuthAdmin = (props: any) => {
             </Form.Group>
           </Form>)
       }
-      {
-        showEdit && (
-          <EditGuest currentGuest={props.currentGuest} />
-        )
-      }
-    </td>
+    {
+      showEdit && (
+        props.children[1]
+      )
+    }
+  </>
+
+
 
   )
 }
