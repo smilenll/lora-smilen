@@ -25,7 +25,7 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
         setOccupants((prevO) => (prevO.filter(o => o !== id)));
     }
     // Copied into table
-    const getGuestData = (id: string): IGuest | undefined => {
+    const getGuestData = (id: string): any => {
         return guests.find(g => g.id === id)
     }
 
@@ -35,12 +35,16 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
         submitOccupants(room)
     }
 
-    const printGuest = (guest: ICurrentGuest | undefined) => (<Occupant name={`${guest?.name} ${guest?.lastName}`} nights={guest?.nights} />)
+    const printGuest = (guest: ICurrentGuest) => (<Occupant key={guest.id || Math.random()} name={`${guest?.name} ${guest?.lastName}`} nights={guest?.nights} />)
 
     const previewOccupants = () => {
         return (
-            occupants.map(o => (printGuest(getGuestData(o)))
-            ))
+            occupants.map(o => {
+                if (o) {
+                    return printGuest(getGuestData(o))
+                }
+            })
+        )
     }
 
     const occupantsAdmin = () => {
@@ -73,7 +77,7 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
             <div className='room-card'>
                 <Card.Body>
                     <Card.Title className="mb-1">
-                        <RoomTextRow label={<div><FontAwesomeIcon icon={faHotel} size="xs" color={color()}/> Хотел</div> } value={room.hotel} />
+                        <RoomTextRow label={<div><FontAwesomeIcon icon={faHotel} size="xs" color={color()}/> Хотел</div>} value={room.hotel} />
                     </Card.Title>
                     <Card.Subtitle className="mb-1" key="1">
                         <RoomTextRow label={<div><FontAwesomeIcon icon={faDoorClosed} size="xs" /> Стая</div>} value={room.room} />

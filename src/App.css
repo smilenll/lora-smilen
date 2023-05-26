@@ -61,7 +61,7 @@ body {
   justify-content: center;
   flex-direction: column;
   font-size: 20px;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
   font-family: "PoiretOne";
   color: #dfd5c0;
@@ -81,7 +81,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  margin: 50px 0;
+  margin: 50px 0 20px 0;
   font-family: "AmaticSC";
   text-align: center;
   color: #dfd5c0;
@@ -235,7 +235,7 @@ td {
   background-color: rgb(223, 213, 192, 0.6);
   border-radius: 10px;
   padding: 27px;
-  height: 100%
+  height: 100%;
 }
 .occupant {
   display: flex;
