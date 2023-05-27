@@ -3,9 +3,7 @@ import { IGuest } from '../../../../common/IGuest';
 import { api } from '../../../../proxies/apiProxy';
 import { Room } from './Room';
 import { IRoom } from '../interfaces/IRoom';
-import { Button, Dropdown, Form } from 'react-bootstrap';
-import { Occupant } from './Occupant';
-import { getMenuString } from '../../../../common/heleprs';
+import { Form } from 'react-bootstrap';
 import { Hotel } from '../../../../common/Hotel.enum';
 
 const filterFreeGuests = (rooms: Array<IRoom>, guests: Array<IGuest>): Array<IGuest> => {
@@ -23,7 +21,7 @@ export const Accommodation = () => {
 
   const setDependency = async () => {
     const guests = await api.getGuests()
-    setGuests(guests)
+    setGuests(guests.filter((g: any) => g.nights > 0))
 
     const rooms = await api.getRooms()
     rooms.forEach((r) => r.occupants = JSON.parse(r.occupants));
@@ -83,35 +81,35 @@ export const Accommodation = () => {
   return (
     <div className="row mb-4">
       <h2 className='form-header'>Настаняване !</h2>
-      {/* <div className="d-grid offset-lg-3 col-lg-6 col-sm-12 mt-5">
-      <Button onClick={() => {}} variant="outline-warning"> {showGuests ? "Скрий гостите" : "Покажи гостите"}</Button>
-    </div> */}
-      {/*     
-    <h1 style={{ color: "green" }}>STATS</h1>
-    <h3 style={{ color: "red" }}>Не настанени {noRoomGuests.length -3}</h3>
-    <h3 style={{ color: "red" }}>Не настанени повече от ден {noRoom2Nights.length}</h3>
-    <h3 style={{ color: "red" }}>Капацитет {getCapacity()}</h3>
-    <h3 style={{ color: "red" }}>Свободни легла {getCapacity() - getOccupantsSum()}</h3> */}
-      <Form.Group className='offset-lg-3 col-lg-6 col-sm-12'>
-        <Form.Label className='info' >Избери гост или разгледай кой къде ще спи :D  </Form.Label>
-        <Form.Select
-          onChange={(e) => filterOccupants(e.target.value as any)}
-          required
-        >
-          <option value="">Избери...</option>
-          <option value="all">Всички гости</option>
-          <option value={Hotel.UTOPIA}>Хотел {Hotel.UTOPIA} Forest</option>
-          <option value={Hotel.ANASTASIA}>Хотел Св. {Hotel.ANASTASIA}</option>
-          {guests.map(g => (
-            <option value={g.id} key={g.id}>{g.name + " " + g.lastName}</option>
-          ))}
-        </Form.Select>
-      </Form.Group>
-      <div className='row mt-5'>
-      {filteredRooms.map(r => r && (
-        <Room key={r.room} room={r} guests={guests} noRoomGuests={noRoomGuests} submitOccupants={submitOccupants} />))
-      }
+      <div className="d-grid offset-lg-3 col-lg-6 col-sm-12 mt-5">
+        {/* <div>
+          <h1 style={{ color: "green" }}>STATS</h1>
+          <h3 style={{ color: "red" }}>Не настанени {noRoomGuests.length - 3}</h3>
+          <h3 style={{ color: "red" }}>Не настанени повече от ден {noRoom2Nights.length}</h3>
+          <h3 style={{ color: "red" }}>Капацитет {getCapacity()}</h3>
+          <h3 style={{ color: "red" }}>Свободни легла {getCapacity() - getOccupantsSum()}</h3>
+        </div> */}
+        <Form.Group className='offset-lg-3 col-lg-6 col-sm-12'>
+          <Form.Label className='info' >Избери гост или разгледай кой къде ще спи :D  </Form.Label>
+          <Form.Select
+            onChange={(e) => filterOccupants(e.target.value as any)}
+            required
+          >
+            <option value="">Избери...</option>
+            <option value="all">Всички гости</option>
+            <option value={Hotel.UTOPIA}>Хотел {Hotel.UTOPIA} Forest</option>
+            <option value={Hotel.ANASTASIA}>Хотел Св. {Hotel.ANASTASIA}</option>
+            {guests.map(g => (
+              <option value={g.id} key={g.id}>{g.name + " " + g.lastName}</option>
+            ))}
+          </Form.Select>
+        </Form.Group>
       </div>
-     
-    </div>)
+      <div className='row mt-5'>
+        {filteredRooms.map(r => r && (
+          <Room key={r.room} room={r} guests={guests} noRoomGuests={noRoomGuests} submitOccupants={submitOccupants} />))
+        }
+      </div>
+    </div>
+  )
 }

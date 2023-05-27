@@ -46,9 +46,10 @@ function App() {
         <Accommodation />
         {/* <AdminPanel /> */}
         <MainCarousel />
-        <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
+        {/* Regirstration Closed */}
+        {/* <div className='offset-lg-3 col-lg-6 col-sm-12 mt-5'>
           {renderTab()}
-        </div>
+        </div> */}
 
         <div className='parallax mt-5'>
           <div className='parallax-container'>

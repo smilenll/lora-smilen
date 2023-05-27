@@ -2,13 +2,12 @@ import { Hotel } from "../../common/Hotel.enum";
 import { IRoom } from "../WeddingDay/Accommodation/interfaces/IRoom";
 
 export const ROOMS: Array<IRoom> = [
-  // INitial record
-  // {
-  //   hotel: Hotel.UTOPIA,
-  //   room: 101,
-  //   capacity: 5,
-  //   occupants: [],
-  // },
+  {
+    hotel: Hotel.UTOPIA,
+    room: 101,
+    capacity: 5,
+    occupants: [],
+  },
   {
     hotel: Hotel.UTOPIA,
     room: 102,
@@ -69,11 +68,6 @@ export const ROOMS: Array<IRoom> = [
     hotel: Hotel.UTOPIA,
     room: 21,
     capacity: 3,
-    occupants: [],
-  },{
-    hotel: Hotel.UTOPIA,
-    room: 31,
-    capacity: 4,
     occupants: [],
   },{
     hotel: Hotel.UTOPIA,

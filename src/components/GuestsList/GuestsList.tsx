@@ -66,7 +66,7 @@ export const GuestsList = () => {
                 <td style={color}>{guest.nights}</td>
                 <td>
                   <AuthAdmin currentGuest={guest} style={color}>
-                    <td><p>{guest.email ? guest.email : "No address"}</p></td>
+                    <p>{guest.email ? guest.email : "No address"}</p>
                     <EditGuest currentGuest={guest} />
                   </AuthAdmin>
                 </td>

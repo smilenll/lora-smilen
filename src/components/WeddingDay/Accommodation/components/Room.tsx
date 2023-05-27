@@ -10,7 +10,7 @@ import { faHotel, faDoorClosed, faMaximize } from '@fortawesome/free-solid-svg-i
 
 type Props = {
     room: IRoom
-    guests: Array<IGuest>
+    guests: Array<ICurrentGuest>
     noRoomGuests: Array<IGuest>
     submitOccupants: (room: IRoom) => void
 }
@@ -38,6 +38,9 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
     const printGuest = (guest: ICurrentGuest) => (<Occupant key={guest.id || Math.random()} name={`${guest?.name} ${guest?.lastName}`} nights={guest?.nights} />)
 
     const previewOccupants = () => {
+        if(occupants.length < 1) {
+            return <span className='room-label'>Празна стая...</span>
+        }
         return (
             occupants.map(o => {
                 if (o) {
@@ -96,8 +99,8 @@ export const Room = ({ room, guests, noRoomGuests, submitOccupants }: Props) => 
                                     onChange={(e) => setGuest(e.target.value)}
                                     required
                                 >   <option>Гости...</option>
-                                    {noRoomGuests.map((g: IGuest) => (
-                                        <option value={g.id} key={g.id}>{g.name} {g.lastName}</option>
+                                    {noRoomGuests.map((g: ICurrentGuest) => (
+                                        <option value={g.id} key={g.id}>{g.name} {g.lastName} {g.nights}</option>
                                     ))}
                                 </Form.Select>
                             </Form.Group>
